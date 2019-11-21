@@ -2,3 +2,9 @@
     width:1920px;
     height: 1080px;
 }
+body{
+    background: url("https://img.youtube.com/vi/8LQSe_1D27I/maxresdefault.jpg");
+    background-size:contain;
+    background-position:top;
+    
+}
