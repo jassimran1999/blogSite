@@ -10,7 +10,8 @@ import {
 class Signin extends React.Component{
         render() {
             return (
-              <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+              <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh',
+              backgroundColor: 'rgba(0,0,0,0.9)'}}>
                 <form className="form-signin">
                   <h2 className="form-signin-heading">Please Sign In</h2>
                   <label for="inputEmail" className="sr-only">Email address</label>

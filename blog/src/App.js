@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
+import Navbar from './Components/Navbar';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +14,16 @@ import {
 function App() {
   
   return (
-   <div className="container" >
-     <Router>  
-         <Link to="/Signup">{'Signup'}</Link>
-         <Link to="/Signin">{'Signin'}</Link>
+    <div className="container">
+    <Navbar/>
+   <div >
+     
+     <Router>
+      <div className="sign" align="center">
+        <Link to="/Signup"><p className="sign1">SIGN UP</p></Link>
+        <Link to="/Signin"><p className="sign1">SIGN IN</p></Link>
+      </div>  
+         
      <switch>
      <Route path="/Signup">
             <Signup />
@@ -26,7 +33,8 @@ function App() {
       </Route>
       </switch>
       </Router>
-   </div>    
+   </div>  
+   </div>  
   );
 }
 

@@ -1,10 +1,31 @@
 .container{
-    width:1920px;
-    height: 1080px;
-}
-body{
-    background: url("https://img.youtube.com/vi/8LQSe_1D27I/maxresdefault.jpg");
-    background-size:contain;
-    background-position:top;
     
 }
+body{
+    background: url("https://jaipurliteraturefestival.org/uploads_jaipurlitfest/contest/header-logo-1001.jpg");
+    background-size:cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+.sign{
+    align-content: center;
+    height: 200px;
+    width: 200px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 60px;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.5);
+}
+.sign1{
+    color:black;
+    font-weight: 500;
+    font-size: large;
+}
+
+

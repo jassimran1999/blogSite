@@ -11,7 +11,7 @@ import {
 class Signup extends React.Component{
   render() {
       return (
-        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh', backgroundColor: 'rgba(0,0,0,0.9)'}}>
           <form className="form-signin">
             <h2 className="form-signin-heading">Please Sign Up</h2>
             <label for="inputName" className="sr-only">Name: </label>
