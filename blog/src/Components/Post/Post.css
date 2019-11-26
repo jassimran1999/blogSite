@@ -1,0 +1,33 @@
+.postBox{
+width:60%;
+max-width: 1000px;
+height:70vh;
+
+position: absolute;
+left: 50%;
+transform: translate(-50%,0);
+margin-top:15px;
+}
+.content{
+    height:100%; 
+    width: 100%;
+    overflow-y: scroll;
+    background-color:white;
+}
+.title{
+    background-color:#e8e8e8;
+}
+.userimg{
+    border-radius: 100px;
+    border-style: solid;
+    border-width:1px;
+}
+.usercard{
+    display: flex;
+    flex-direction: row;
+    padding-left:05px;
+    padding-top:2px;
+}
+.username{
+    padding-left:10px; 
+}

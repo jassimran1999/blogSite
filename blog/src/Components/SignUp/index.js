@@ -25,11 +25,11 @@ class Signup extends React.Component{
             <br/><br/>
             <button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="button">Sign up</button>
             <br/>
-            <Router>
-         
+
+            <div>
             <Link to="/Signin">{'Signin'}</Link>
-          
-          </Router>
+            </div>
+  
           </form>
           
         </div>

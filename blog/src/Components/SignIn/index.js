@@ -23,7 +23,7 @@ class Signin extends React.Component{
                   <button className="btn btn-lg btn-primary btn-block" onClick={this.signIn} type="button">Sign in</button>
                   
                 <div>
-                  <Link to="/signup">{'Signup'}</Link>
+                  <Link to="/Signup">{'Signup'}</Link>
                 </div>
 
                 </form>

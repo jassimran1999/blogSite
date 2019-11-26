@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
+import Post from './Components/Post';
 import Navbar from './Components/Navbar';
+import postData from './Constants/postConstants';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,26 +16,43 @@ import {
 function App() {
   
   return (
-    <div className="container">
-    <Navbar/>
-   <div >
+    <div className="outer" >
+    
+    <Navbar />
+    <switch>
+   
      
      <Router>
+     <Route path="/home">
+     <div className="background">
+      <div >
       <div className="sign" align="center">
         <Link to="/Signup"><p className="sign1">SIGN UP</p></Link>
         <Link to="/Signin"><p className="sign1">SIGN IN</p></Link>
+        </div>  
+      </div> 
       </div>  
-         
-     <switch>
+         </Route>
+     
      <Route path="/Signup">
             <Signup />
       </Route>
       <Route path="/Signin">
             <Signin />
       </Route>
-      </switch>
+      <Route path="/jv41">
+        <div>
+          { postData.map((item) => {return (<Post {...item} /> )})}
+        </div>
+      </Route>
+      
       </Router>
-   </div>  
+
+      
+      </switch>
+      
+    
+
    </div>  
   );
 }
