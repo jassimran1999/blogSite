@@ -4,6 +4,7 @@ body{
     background-size:cover;
     background-position:top;
     background-repeat: no-repeat;
+    max-width: 100%;
 }
 .sign{
     align-content: center;
