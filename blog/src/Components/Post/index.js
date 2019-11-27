@@ -1,5 +1,4 @@
 import React from 'react';
-import { ScrollView} from 'react';
 import {
     BrowserRouter as Router,
     Switch,

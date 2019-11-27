@@ -8,14 +8,9 @@ left: 50%;
 transform: translate(-50%,0);
 margin-top:15px;
 }
-.content{
-    height:100%; 
-    width: 100%;
-    overflow-y: scroll;
-    background-color:white;
-}
+
 .title{
-    background-color:#e8e8e8;
+    background-color:#101820FF;
 }
 .userimg{
     border-radius: 100px;
@@ -30,14 +25,23 @@ margin-top:15px;
 }
 .username{
     padding-left:10px; 
+    color:#B1B3B3FF;
 }
 .postTitle{
     text-align: center;
     font-weight: bold;
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
+    color:#B1B3B3FF;
 }
-
+.content{
+    height:100%; 
+    width: 100%;
+    overflow-y: scroll;
+    background-color:#B1B3B3FF;
+    color:black;
+   
+}
 
 .content::-webkit-scrollbar {
         width: 5px;
