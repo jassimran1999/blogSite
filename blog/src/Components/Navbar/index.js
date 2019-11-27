@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Signup from './../SignIn';
+import Signin from './../SignUp';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
     BrowserRouter as Router,
@@ -15,13 +17,13 @@ class Navbar extends Component {
                 <div className="col">
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
                         <div className="navbar-brand">
-                            <Link to='/'>Home</Link>
+                            <Link to="/">Home</Link>
                         </div>
                         <div className="navbar-nav">
-                            <Link to='/SignIn'>Sign In</Link>
+                            <Link to="/Signin">Sign In</Link>
                         </div>
                         <div className="navbar-nav">
-                            <Link to='/SignUp'>Sign Up</Link>
+                            <Link to="/Signup">Sign Up</Link>
                         </div>
 
                         <div className="navbar-text ml-5 pl-5">
@@ -30,6 +32,12 @@ class Navbar extends Component {
                     </nav>
                 </div>
             </div >
+            <Route path="/Signup">
+            <Signup />
+      </Route>
+      <Route path="/Signin">
+            <Signin />
+      </Route>
             </Router>
         )
     }
