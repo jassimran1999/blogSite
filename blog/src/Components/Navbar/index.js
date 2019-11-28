@@ -17,17 +17,16 @@ class Navbar extends Component {
            
             <div className="row">
                 <div className="col">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <div className="navbar-brand">
-                            <Link to="/home">Home</Link>
+                    <nav className="navbar navbar-inverse">
+                        <div className="container-fluid">
+                            <div className="navbar-header">
+                                <Link className="navbar-brand" to="/home">Home</Link>
+                            </div>
+                            <ul className="nav navbar-nav navbar-right">
+                                <li><Link to="/Signin">Sign In&emsp;</Link>
+                                <Link to="/Signup"> Sign Up</Link></li>
+                            </ul>
                         </div>
-                        <div className="justify-content-end">
-                            <Link to="/Signin">Sign In</Link>
-                        </div>
-                        <div className="nav navbar-nav pull-xs-right">
-                            <Link to="/Signup">Sign Up</Link>
-                        </div>
-
                     </nav>
                 </div>
             </div >
