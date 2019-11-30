@@ -7,8 +7,10 @@ import {
     useRouteMatch
   } from 'react-router-dom';
   import './Profile.css';
+  import postProfileVal from '../../Constants/profilePostConstants' ;
+  import ProfilePost from '../ProfilePost';
 
-class Post extends React.Component{
+class Profile extends React.Component{
   render() {
       return (
         <div className="Profile">
@@ -23,12 +25,13 @@ class Post extends React.Component{
                     </div>
                 </div>
             </div>
-            <div className="content">
-                {this.props.content}
+            <div className="posts">
+            { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
             </div>
+            {"Thats all Folks."}
             </div>  
         </div>
       )
     }
 }
-export default Post;
+export default Profile;
