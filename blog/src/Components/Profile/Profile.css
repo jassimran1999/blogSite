@@ -1,0 +1,41 @@
+.Profile{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.userInfo{
+    display:flex;
+    flex-direction: row;
+    height:30%;
+    max-height:150px; 
+}
+.usercard{
+    display:flex;
+    flex-direction: column;
+    padding-left: 10%;
+    justify-content: space-around;
+}
+.descBox{
+    height: 50%;
+}
+.userid{
+    height: 50%;
+    display: flex;
+    font-size: 2em;
+}
+.userName{
+    font-size: 1.5em;
+}
+.userimage{
+    border-radius: 50%;
+    border-style: solid;
+    border-width:5px;
+    border-color: #acacac;
+    width: auto;
+    height: 100%;
+    /* max-height:200px */
+}
+.userDesc{
+    white-space: pre-line;
+}

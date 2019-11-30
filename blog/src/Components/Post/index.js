@@ -14,7 +14,7 @@ class Post extends React.Component{
         <div className="postBox" >
           <div className="title">
             <div className="usercard">
-              <img className="userimg" src="https://cda.kaust.edu.sa/_layouts/KAUST_ResearchCenters_Template/images/DefaultPersonPhoto.png" width="30px" height="30px"/>
+              <img className="userimg" src={this.props.imgUrl} width="30px" height="30px"/>
               <div className="username">{this.props.username}</div>
             </div>
             <div className="postTitle">

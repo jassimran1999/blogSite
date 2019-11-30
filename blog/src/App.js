@@ -3,8 +3,10 @@ import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
 import Post from './Components/Post';
+import Profile from './Components/Profile';
 import Navbar from './Components/Navbar';
 import postData from './Constants/postConstants';
+import userData from './Constants/userConstants';
 import {
   BrowserRouter as Router,
   Switch,
@@ -43,6 +45,11 @@ function App() {
       <Route path="/jv41">
         <div>
           { postData.map((item) => {return (<Post {...item} /> )})}
+        </div>
+      </Route>
+      <Route path="/jv4">
+        <div>
+          { userData.map((item) => {return (<Profile {...item} /> )})}
         </div>
       </Route>
       
