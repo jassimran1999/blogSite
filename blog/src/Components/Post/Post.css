@@ -17,7 +17,7 @@ margin-top:15px;
     border-style: solid;
     border-width:1px;
 }
-.usercard{
+.postcard{
     display: flex;
     flex-direction: row;
     padding-left:05px;

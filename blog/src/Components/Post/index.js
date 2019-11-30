@@ -13,7 +13,7 @@ class Post extends React.Component{
       return (
         <div className="postBox" >
           <div className="title">
-            <div className="usercard">
+            <div className="postcard">
               <img className="userimg" src={this.props.imgUrl} width="30px" height="30px"/>
               <div className="username">{this.props.username}</div>
             </div>
