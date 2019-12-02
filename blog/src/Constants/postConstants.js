@@ -10,4 +10,4 @@ export default [{
     background:"black",
     imgUrl:value[0].userPhoto,
 
-}];
+},];

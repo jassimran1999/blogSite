@@ -28,7 +28,7 @@ class Profile extends React.Component{
             <div className="posts">
             { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
             </div>
-            {"Thats all Folks."}
+           <div className="end"> That's all folks.</div>
             </div>  
         </div>
       )

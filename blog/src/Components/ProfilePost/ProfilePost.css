@@ -1,0 +1,43 @@
+.prof-post {
+    display:flex;
+    flex-direction: row;
+    /* background-color: black; */
+    width:100%;
+    height:15vh;
+    align-items: center; 
+}
+.post-spacing {
+    height: 5vh;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.post-thumbnail{
+    height:100%;
+    width:26vh;
+    display: flex;
+    align-items: center;
+}
+.post-meta{
+    height:100%;
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3vh;
+
+}
+.borderHr{
+    height: 50%;
+    width: 90%;
+    border-bottom-width: 0.12vh;
+    color:#b2b2b2;
+    border-bottom-style: solid;
+}
+.imageThumbnail{
+    width:auto;
+    height:100%;
+
+}
+.postProfileTitle{
+    font-size: 2em;
+}

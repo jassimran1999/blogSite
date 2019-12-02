@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Signup from './../SignUp';
 import Signin from './../SignIn';
-//import App from './../../App';
+// import App from './../../App.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
     BrowserRouter as Router,
@@ -31,7 +31,7 @@ class Navbar extends Component {
                 </div>
             </div >
             
-            {/* <Route path="/">
+             {/* <Route path="/home">
             <App />
       </Route> */}
 

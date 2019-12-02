@@ -1,14 +1,17 @@
 .Profile{
-    width: 50%;
+    width: 65%;
     position: absolute;
     left: 50%;
+    top:15%;
     transform: translate(-50%,0);
 }
 .userInfo{
     display:flex;
     flex-direction: row;
-    height:30%;
-    max-height:150px; 
+    height:50%;
+    max-height:200px; 
+    padding-left:15% 
+
 }
 .usercard{
     display:flex;
@@ -40,5 +43,10 @@
     white-space: pre-line;
 }
 .end{
-    padding-top: 10vh;
+    padding-top:5vh;
+    text-align: center;
+    color: dimgray;
+}
+.posts {
+    padding-top:10vh;
 }
