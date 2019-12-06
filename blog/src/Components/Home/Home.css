@@ -1,6 +1,12 @@
 .HomeBody {
     display: flex;
     flex-direction: row;
+    width:130vh;
+    max-width: 960px;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
 }
 .HomeHeader {
     height:20vh;

@@ -1,6 +1,8 @@
 .homePost {
     width:40vh;
     height:40vh;
+    max-width: 300px;
+    max-height: 300px;
     background-color: red;
     border-style: solid;
     
@@ -28,8 +30,9 @@
     padding-top:2px;
 }
 .postImg {
-    height:100%;
-    width:30vh;
+    
+    width:40vh;
+    max-width:290px;
     display: flex;
     align-items: center;
 }
