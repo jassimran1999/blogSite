@@ -4,27 +4,39 @@ import {
     Switch,
     Route,
     Link,
-    useRouteMatch
+    useRouteMatch,
+    browserHistory
   } from 'react-router-dom';
   import postProfileVal from '../../Constants/profilePostConstants' ;
   import './HomePost.css';
 class HomePost extends React.Component{
+  
+  
     render() {
+        const link = '/'+this.props.id;
         return (
+            
             <div className="postOuter">
-          <div className="homePost">
+              
+              <div className="homePost" >
               <div className="postHead">
                 <img className="userImg" src={this.props.imgUrl}/>
                 <div className="userName">{this.props.username}</div>
               </div>
+              <Link className="linkHomePost" exact to={link}>
               <div className="postBody">
-              < img className="postImg" src={this.props.thumbnail}/>
+                < img className="postImg" src={this.props.thumbnail}/>
               </div>
               <div className="postBottom">
-                <div className="postDesc">{this.props.desc}</div>
+                <div className="postTitleHome">{this.props.title}</div>
+                <div className="postDescHome">{this.props.desc}</div>
               </div>
+              </Link>
+              </div>
+              
           </div>
-          </div>
+          
+         
         )
       }
   }
