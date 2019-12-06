@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Signup from './../SignUp';
 import Signin from './../SignIn';
+import Home from './../Home';
 // import App from './../../App.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
@@ -13,6 +14,7 @@ import {
 class Navbar extends Component {
     render() {
         return (
+            <switch>
             <Router>
            
             <div className="row">
@@ -23,7 +25,7 @@ class Navbar extends Component {
                                 <Link className="navbar-brand" to="/home">Home</Link>
                             </div>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to="/Signin">Sign In&emsp;</Link>
+                                <li><Link to="/Signin">Sign In</Link>&emsp;
                                 <Link to="/Signup"> Sign Up</Link></li>
                             </ul>
                         </div>
@@ -31,9 +33,9 @@ class Navbar extends Component {
                 </div>
             </div >
             
-             {/* <Route path="/home">
-            <App />
-      </Route> */}
+             <Route path="/home">
+            <Home />
+      </Route>
 
             <Route path="/Signup">
             <Signup />
@@ -42,6 +44,7 @@ class Navbar extends Component {
             <Signin />
       </Route>
             </Router>
+            </switch>
         )
     }
 }

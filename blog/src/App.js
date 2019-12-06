@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
+import Home from './Components/Home';
 import Post from './Components/Post';
 import Profile from './Components/Profile';
 import Navbar from './Components/Navbar';
@@ -26,14 +27,16 @@ function App() {
      
      <Router>
      <Route path="/home">
-     <div className="background">
+       <Home />
+      
+     {/* <div className="background">
       <div >
       <div className="sign" align="center">
         <Link to="/Signup"><p className="sign1">SIGN UP</p></Link>
         <Link to="/Signin"><p className="sign1">SIGN IN</p></Link>
         </div>  
       </div> 
-      </div>  
+      </div>   */}
          </Route>
      
      <Route path="/Signup">

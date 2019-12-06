@@ -1,0 +1,7 @@
+.HomeBody {
+    display: flex;
+    flex-direction: row;
+}
+.HomeHeader {
+    height:20vh;
+}

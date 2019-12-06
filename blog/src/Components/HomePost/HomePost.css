@@ -1,0 +1,40 @@
+.homePost {
+    width:40vh;
+    height:40vh;
+    background-color: red;
+    border-style: solid;
+    
+    /* display:flex;
+    flex-direction: row; */
+}
+.postOuter {
+    padding: 10px;
+}
+.userImg {
+    border-radius: 100px;
+    border-style: solid;
+    border-width:1px;
+    width:25px; 
+    height:25px;
+}
+.userName{
+    padding-left:10px; 
+    font-size: xx-small;
+}
+.postHead{
+    display: flex;
+    flex-direction: row;
+    padding-left:05px;
+    padding-top:2px;
+}
+.postImg {
+    height:100%;
+    width:30vh;
+    display: flex;
+    align-items: center;
+}
+.postBody {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
