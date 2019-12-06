@@ -21,13 +21,13 @@ function App() {
   return (
     <div className="outer" >
     
-    <Navbar />
+    
     <switch>
-   
+    <Router>
+      
+    <Navbar />
      
-     <Router>
-     <Route path="/home">
-       <Home />
+     
       
      {/* <div className="background">
       <div >
@@ -37,6 +37,9 @@ function App() {
         </div>  
       </div> 
       </div>   */}
+         
+     <Route path="/home">
+       <Home />
          </Route>
      
      <Route path="/Signup">

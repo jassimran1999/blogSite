@@ -20,7 +20,7 @@ class Profile extends React.Component{
                 <div className="usercard">
                     <div className="userid">{this.props.username}</div>
                     <div className="descBox">
-                        <div className="userName">{this.props.name}</div>
+                        <div className="userNameProf">{this.props.name}</div>
                         <div className="userDesc">{this.props.description}</div>
                     </div>
                 </div>

@@ -25,7 +25,6 @@ class Signin extends React.Component{
                 <div>
                   <Link to="/Signup">{'Signup'}</Link>
                 </div>
-
                 </form>
               </div>
           
