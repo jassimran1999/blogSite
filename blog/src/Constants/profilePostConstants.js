@@ -15,7 +15,7 @@ export default [
     username : value[0].username,
     title : value[0].title,
     date : Date.now(),
-    desc:"My first Post.is fdhvhfikhelhvefjjbportjboprwj t;lj gorw/ ",
+    desc:"My first Post.is abd ",
     share:'localhost:3000/jv41',
     background:"black",
     imgUrl:value[0].imgUrl,

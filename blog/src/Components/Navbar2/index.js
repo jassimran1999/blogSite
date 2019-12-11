@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import addPost from './../AddPost';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
     BrowserRouter as Router,
@@ -25,10 +26,11 @@ class Navbar2 extends Component {
                                 
                                 <select>
                                     <option value="Profile" selected>Profile</option>
-                                    <option value="Settings" >Settings</option>
+                                    <option value="Settings">Settings</option>
                                     <option value="Friends">Friends</option>
+                                    <option value="Logout">Logout</option>
                                 </select>&emsp;
-                                <Link exact to="/addBook">{'AddBook'}</Link>
+                                <Link exact to="/addPost">{'AddPost'}</Link>
                                 
                                 </div>
                                 

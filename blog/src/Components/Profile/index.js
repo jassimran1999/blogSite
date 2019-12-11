@@ -13,7 +13,6 @@ import {
 
 class Profile extends React.Component{
   render() {
-    const link = '/'+this.props.id;
       return (
         <div className="Profile">
         <switch>
@@ -21,8 +20,6 @@ class Profile extends React.Component{
             <Navbar2 />
           </Router>
         </switch>
-
-
             <div className="userBox" >
               <div className="userInfo">
                   <img className="userimage" src={this.props.userPhoto} />
@@ -34,11 +31,16 @@ class Profile extends React.Component{
                       </div>
                   </div>
               </div>
-              <Link className="linkProfile" exact to={link}>
+              <div className="follow">
+                <p>
+                  <h3>Following</h3>{this.props.following1}
+                  <h3>Followers</h3>{this.props.follow1}    
+                  <button className="btn btn-lg btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
+                </p>
+              </div>
                 <div className="posts">
                 { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
                 </div>
-              </Link>
            <div className="end"> That's all folks.</div>
             </div>  
         </div>

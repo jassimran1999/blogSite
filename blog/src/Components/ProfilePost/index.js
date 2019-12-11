@@ -10,6 +10,7 @@ import {
 
 class ProfilePost extends React.Component{
   render() {
+    const link = '/'+this.props.id;
       return (
         <div>
         <div className="prof-post">
@@ -17,8 +18,10 @@ class ProfilePost extends React.Component{
           <img className="imageThumbnail" src={this.props.thumbnail} />
           </div>
           <div className="post-meta">
+          <Link className="linkProfile" exact to={link}>
           <div className="postProfileTitle">{this.props.title}</div>
           <div className="postDesc">{this.props.desc}</div>
+          </Link>
           </div>
           </div>
           <div className="post-spacing">
