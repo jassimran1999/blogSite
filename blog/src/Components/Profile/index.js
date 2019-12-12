@@ -5,49 +5,46 @@ import {
     Route,
     Link,
     useRouteMatch
-  } from 'react-router-dom';
-  import './Profile.css';
-  import postProfileVal from '../../Constants/profilePostConstants' ;
-  import ProfilePost from '../ProfilePost';
-  import Navbar2 from '../Navbar2';
+} from 'react-router-dom';
+import './Profile.css';
+import postProfileVal from '../../Constants/profilePostConstants' ;
+import ProfilePost from '../ProfilePost';
+import Navbar2 from '../Navbar2';
 
 class Profile extends React.Component{
   render() {
       return (
         <div className="Profile">
-        <switch>
-          <Router>
-            <Navbar2 />
-          </Router>
-        </switch>
-            <div className="userBox" >
-              <div className="userInfo">
-                  <img className="userimage" src={this.props.userPhoto} />
-                  <div className="usercard">
-                      <div className="userid">{this.props.username}</div>
-                      <div className="follow">
-                        <div className="following">
-                          <h4>Following</h4>{this.props.following1}
-                        </div>
-                        <div className="followers">
-                          <h4>Followers</h4>{this.props.follow1} 
-                        </div>
-                        </div>
-                        <button className="btn btn-sm btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
-                        
-                      
-                      <div className="descBox">
-                          <div className="userNameProf">{this.props.name}</div>
-                          <div className="userDesc">{this.props.description}</div>
-                      </div>
+          <switch>
+            <Router>
+              <Navbar2 />
+            </Router>
+          </switch>
+          <div className="userBox" >
+            <div className="userInfo">
+              <img className="userimage" src={this.props.userPhoto} />
+              <div className="usercard">
+                <div className="userid">{this.props.username}</div>
+                <div className="follow">
+                  <div className="following">
+                    <h4>Following</h4>{this.props.following1}
                   </div>
-              </div>
-              
-                <div className="posts">
-                { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
+                  <div className="followers">
+                    <h4>Followers</h4>{this.props.follow1} 
+                  </div>
                 </div>
-           <div className="end"> That's all folks.</div>
-            </div>  
+                <button className="btn btn-sm btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
+                <div className="descBox">
+                  <div className="userNameProf">{this.props.name}</div>
+                  <div className="userDesc">{this.props.description}</div>
+                </div>
+              </div>
+            </div>
+            <div className="posts">
+              { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
+            </div>
+            <div className="end"> That's all folks.</div>
+          </div>  
         </div>
       )
     }

@@ -6,24 +6,25 @@ import {
     Link,
     useRouteMatch,
     browserHistory
-  } from 'react-router-dom';
-  import postProfileVal from '../../Constants/profilePostConstants' ;
-  import './HomePost.css';
+} from 'react-router-dom';
+import postProfileVal from '../../Constants/profilePostConstants' ;
+import './HomePost.css';
 class HomePost extends React.Component{
-  
-  
+    
     render() {
-        const link = '/'+this.props.id;
-        return (
-            
-            <div className="postOuter">
+      const link1 = '/'+this.props.id;
+      const link2 = '/'+this.props.username;
+      return (      
+        <div className="postOuter">
               
-              <div className="homePost" >
-              <div className="postHead">
+          <div className="homePost" >
+            <Link className="linkHomeUser" exact to={link2}>
+              <div className="postHead">      
                 <img className="userImg" src={this.props.imgUrl}/>
                 <div className="userName">{this.props.username}</div>
               </div>
-              <Link className="linkHomePost" exact to={link}>
+            </Link>
+            <Link className="linkHomePost" exact to={link1}>
               <div className="postBody">
                 < img className="postImg" src={this.props.thumbnail}/>
               </div>
@@ -31,13 +32,10 @@ class HomePost extends React.Component{
                 <div className="postTitleHome">{this.props.title}</div>
                 <div className="postDescHome">{this.props.desc}</div>
               </div>
-              </Link>
-              </div>
-              
-          </div>
-          
-         
-        )
-      }
-  }
-  export default HomePost;
+            </Link>
+          </div>  
+        </div> 
+      )
+    }
+}
+export default HomePost;

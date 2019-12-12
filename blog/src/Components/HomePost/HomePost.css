@@ -15,9 +15,13 @@
     padding: 10px;
 }
 .linkHomePost{
-    display:block;
-    
+    display:block; 
 }
+
+.linkHomeUser{
+    display:block; 
+}
+
 .userImg {
     border-radius: 100px;
     border-style: solid;

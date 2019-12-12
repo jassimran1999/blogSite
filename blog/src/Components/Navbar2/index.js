@@ -19,7 +19,7 @@ class Navbar2 extends Component {
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
                             <div className="navbar-header">
-                                <Link className="navbar-brand" to="/jv4" >Home</Link>
+                                <Link className="navbar-brand" to="/jv4" >Profile</Link>
                             </div>
                             <div className="nav navbar-nav navbar-right">
                                 <div>
