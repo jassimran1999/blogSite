@@ -50,3 +50,19 @@
 .posts {
     padding-top:10vh;
 }
+.follow {
+    display: flex;
+    flex-direction: row;
+    /* border-style: solid; */
+}
+.following {
+    width:50%;
+    text-align: center;
+    
+    /* border-style: solid; */
+}
+.followers {
+    width:50%;
+    text-align: center;
+    /* border-style: solid; */
+}

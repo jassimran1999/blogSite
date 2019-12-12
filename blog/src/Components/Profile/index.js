@@ -25,19 +25,24 @@ class Profile extends React.Component{
                   <img className="userimage" src={this.props.userPhoto} />
                   <div className="usercard">
                       <div className="userid">{this.props.username}</div>
+                      <div className="follow">
+                        <div className="following">
+                          <h4>Following</h4>{this.props.following1}
+                        </div>
+                        <div className="followers">
+                          <h4>Followers</h4>{this.props.follow1} 
+                        </div>
+                        </div>
+                        <button className="btn btn-sm btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
+                        
+                      
                       <div className="descBox">
                           <div className="userNameProf">{this.props.name}</div>
                           <div className="userDesc">{this.props.description}</div>
                       </div>
                   </div>
               </div>
-              <div className="follow">
-                <p>
-                  <h3>Following</h3>{this.props.following1}
-                  <h3>Followers</h3>{this.props.follow1}    
-                  <button className="btn btn-lg btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
-                </p>
-              </div>
+              
                 <div className="posts">
                 { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
                 </div>
