@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "blogBackend": "echo initializing.... && echo starting deployment.... && node /Users/apple/Documents/blogSite/Backend/node/pull/profile/index.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}

@@ -4,7 +4,8 @@ import {
     Switch,
     Route,
     Link,
-    useRouteMatch
+    useRouteMatch,
+    withRouter
 } from 'react-router-dom';
 import './Profile.css';
 import postProfileVal from '../../Constants/profilePostConstants' ;
@@ -12,8 +13,35 @@ import ProfilePost from '../ProfilePost';
 import Navbar2 from '../Navbar2';
 
 class Profile extends React.Component{
+  constructor(){
+    super();
+    this.state={
+    
+    }
+  }
+
+  componentDidMount(){
+    this.sendUsername();
+  }
+
+
+  sendUsername = ()=>{
+    //let id = "localhost:5000/queryParams?id:"+this.props.match.params.userId
+    fetch('http://localhost:5000/queryParams?id='+ this.props.match.params.userId).then(response => {
+		  return response.json();
+		}).then(res => {
+		  this.setState({
+			userData: res,
+      })
+      
+		});
+
+
+  }
   render() {
+    console.log(this.state.userData);
       return (
+        
         <div className="Profile">
           <switch>
             <Router>
@@ -49,4 +77,4 @@ class Profile extends React.Component{
       )
     }
 }
-export default Profile;
+export default withRouter(Profile);

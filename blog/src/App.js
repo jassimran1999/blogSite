@@ -53,7 +53,7 @@ function App() {
           { postData.map((item) => {return (<Post {...item} /> )})}
         </div>
       </Route>
-      <Route path="/jv4">
+      <Route path="/user/:userId">
         <div>
           { userData.map((item) => {return (<Profile {...item} /> )})}
         </div>
