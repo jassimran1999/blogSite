@@ -10,7 +10,7 @@ import './Post.css';
 
 class Post extends React.Component{
   render() {
-    const link = '/'+this.props.username;
+    const link = '/user/'+this.props.username;
       return (
         <div className="postBox" >
           <div className="title">

@@ -16,7 +16,7 @@ class Home extends React.Component{
         return (
             <div className="Home">
                 <div className="HomeHeader">
-                    <center><h2>BloggingInn</h2></center>
+                    <center><h2>BlogIn</h2></center>
                 </div>
                 <div className="HomeBody">
                     { postProfileVal.map((item) => {return (<HomePost {...item} /> )})}

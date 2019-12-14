@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Post from './Components/Post';
 import Profile from './Components/Profile';
 import Navbar from './Components/Navbar';
+import AddPost from './Components/AddPost';
 import postData from './Constants/postConstants';
 import userData from './Constants/userConstants';
 import {
@@ -47,6 +48,9 @@ function App() {
       </Route>
       <Route path="/Signin">
             <Signin />
+      </Route>
+      <Route path="/AddPost">
+            <AddPost />
       </Route>
       <Route path="/jv41">
         <div>

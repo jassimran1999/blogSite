@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import addPost from './../AddPost';
+import AddPost from './../AddPost';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
     BrowserRouter as Router,
@@ -12,7 +12,7 @@ class Navbar2 extends Component {
     render() {
         return (
             
-           
+            
            
             <div className="row">
                 <div className="col">
@@ -30,15 +30,17 @@ class Navbar2 extends Component {
                                     <option value="Friends">Friends</option>
                                     <option value="Logout">Logout</option>
                                 </select>&emsp;
-                                <Link exact to="/addPost">{'AddPost'}</Link>
+                                
+                                <Link exact to="/AddPost">{"AddPost"}</Link>
                                 
                                 </div>
-                                
+                                 
                             </div>
                         </div>
                     </nav>
                 </div>
-            </div >
+            </div>
+            
         
           
         

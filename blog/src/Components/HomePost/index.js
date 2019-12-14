@@ -13,7 +13,7 @@ class HomePost extends React.Component{
     
     render() {
       const link1 = '/'+this.props.id;
-      const link2 = '/'+this.props.username;
+      const link2 = '/user/'+this.props.username;
       return (      
         <div className="postOuter">
               
