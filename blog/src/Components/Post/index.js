@@ -27,6 +27,13 @@ class Post extends React.Component{
           <div className="content">
                {this.props.content}
           </div>
+          <div className="action">
+            <div className="like">
+              <button>LIKE</button><br/>
+              <p className="likeNumber">{this.props.likes}</p>
+            </div>
+            
+          </div>
         </div>  
       )
     }

@@ -1,7 +1,7 @@
 .postBox{
 width:60%;
 max-width: 1000px;
-height:70vh;
+height:65vh;
 
 position: absolute;
 left: 50%;
@@ -41,6 +41,23 @@ margin-top:15px;
     background-color:#B1B3B3FF;
     color:black;
    
+}
+
+.action {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding-top: 6px;
+}
+
+.like {
+    
+}
+
+.likeNumber {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 .content::-webkit-scrollbar {
