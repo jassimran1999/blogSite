@@ -1,8 +1,11 @@
 {
     "scripts": {
-        "blogBackend": "echo initializing.... && echo starting deployment.... && node pull/profile/index.js"
+        "blogBackend": "echo initializing.... && echo starting deployment.... && node api/index.js"
     },
     "dependencies": {
         "express": "^4.17.1"
     }
 }
+
+
+

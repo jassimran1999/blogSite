@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import './Profile.css';
 import postProfileVal from '../../Constants/profilePostConstants' ;
+import data from '../../Constants/initialiserUserData';
 import ProfilePost from '../ProfilePost';
 import Navbar2 from '../Navbar2';
 
@@ -16,7 +17,7 @@ class Profile extends React.Component{
   constructor(){
     super();
     this.state={
-    
+    userData:data,
     }
   }
 
@@ -33,36 +34,35 @@ class Profile extends React.Component{
 		  this.setState({
 			userData: res,
       })
-      
 		});
-
-
   }
   render() {
     console.log(this.state.userData);
       return (
         
         <div className="Profile">
-          
+          <switch>
+            <Router>
               <Navbar2 />
-            
+            </Router>
+          </switch>
           <div className="userBox" >
             <div className="userInfo">
-              <img className="userimage" src={this.props.userPhoto} />
+              <img className="userimage" src={this.state.userData.userPhoto} />
               <div className="usercard">
-                <div className="userid">{this.props.username}</div>
+                <div className="userid">{this.state.userData.username}</div>
                 <div className="follow">
                   <div className="following">
-                    <h4>Following</h4>{this.props.following1}
+                    <h4>Following</h4>{this.state.userData.following1}
                   </div>
                   <div className="followers">
-                    <h4>Followers</h4>{this.props.follow1} 
+                    <h4>Followers</h4>{this.state.userData.follow1} 
                   </div>
                 </div>
-                <button className="btn btn-sm btn-primary btn-block" onClick={this.props.follow1+1} type="button">Follow</button>
+                <button className="btn btn-sm btn-primary btn-block" onClick={this.state.userData.follow1+1} type="button">Follow</button>
                 <div className="descBox">
-                  <div className="userNameProf">{this.props.name}</div>
-                  <div className="userDesc">{this.props.description}</div>
+                  <div className="userNameProf">{this.state.userData.name}</div>
+                  <div className="userDesc">{this.state.userData.description}</div>
                 </div>
               </div>
             </div>
