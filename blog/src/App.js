@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
+import Name from './Components/SignDetails/Name';
 import Home from './Components/Home';
 import Post from './Components/Post';
 import Profile from './Components/Profile';
@@ -49,6 +50,9 @@ function App() {
       <Route path="/Signin">
             <Signin />
       </Route>
+      <Route path="/Name">
+       <Name />
+         </Route>
       <Route path="/AddPost">
             <AddPost />
       </Route>

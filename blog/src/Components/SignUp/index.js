@@ -23,7 +23,7 @@ class Signup extends React.Component{
             <label for="inputPassword" className="sr-only">Password: </label>
             <input type="password" onChange={this.handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
             <br/><br/>
-            <button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="button">Sign up</button>
+            <Link to="/Name"><button className="btn btn-lg btn-primary btn-block" type="button">Sign up</button></Link>
             <br/>
 
             <div>
