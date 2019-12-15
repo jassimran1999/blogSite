@@ -3,6 +3,7 @@ import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
 import Name from './Components/SignDetails/Name';
+import ImageUpload from './Components/SignDetails/ImageUpload';
 import Home from './Components/Home';
 import Post from './Components/Post';
 import Profile from './Components/Profile';
@@ -52,7 +53,11 @@ function App() {
       </Route>
       <Route path="/Name">
        <Name />
-         </Route>
+      </Route>
+      <Route path="/ImageUpload">
+       <ImageUpload />
+      </Route>
+
       <Route path="/AddPost">
             <AddPost />
       </Route>
