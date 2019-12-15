@@ -52,14 +52,16 @@ class ImageUpload extends Component{
             <form onSubmit={(e)=>this._handleSubmit(e)}>
               <input className="fileInput" 
                 type="file" 
-                onChange={(e)=>this._handleImageChange(e)} /><br/>
-              <button className="submitButton" 
-                type="submit" 
-                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+                onChange={(e)=>this._handleImageChange(e)} />
+              
             </form>
             <div className="imgPreview">
               {$imagePreview}
             </div>
+            <br/>
+            <button className="submitButton" 
+                type="submit" 
+                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
           </div>
           </div>
         )

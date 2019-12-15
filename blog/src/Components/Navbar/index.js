@@ -17,7 +17,7 @@ class Navbar extends Component {
             
            
            
-            <div className="row" style={{borderBottomStyle:'solid',backgroundColor:'#101820FF'}}>
+            <div className="row" style={{width:'102%',zIndex:'1',borderBottomStyle:'solid',backgroundColor:'#101820FF',position:'fixed'}}>
                 <div className="col">
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
