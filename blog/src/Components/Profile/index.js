@@ -32,9 +32,14 @@ class Profile extends React.Component{
 		  return response.json();
 		}).then(res => {
 		  this.setState({
-			userData: res,
+      userData: res,
       })
 		});
+  }
+
+  followerIncrease = () => {
+    this.setState({ follow1 : this.state.follow1+1 })
+ //   this.setState.userData.follow1=this.state.userData.follow1+1;
   }
   render() {
     console.log(this.state.userData);
@@ -59,7 +64,7 @@ class Profile extends React.Component{
                     <h4>Followers</h4>{this.state.userData.follow1} 
                   </div>
                 </div>
-                <button className="btn btn-sm btn-primary btn-block" onClick={this.state.userData.follow1+1} type="button">Follow</button>
+                <button className="btn btn-sm btn-primary btn-block" onClick={this.followerIncrease} type="button">Follow</button>
                 <div className="descBox">
                   <div className="userNameProf">{this.state.userData.name}</div>
                   <div className="userDesc">{this.state.userData.description}</div>
