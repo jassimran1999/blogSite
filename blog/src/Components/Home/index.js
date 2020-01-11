@@ -1,4 +1,5 @@
 import React from 'react';
+import ParticlesBg from 'particles-bg'
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,6 +16,7 @@ class Home extends React.Component{
     render() {
         return (
             <div className="Home">
+                
                 <div className="HomeHeader">
                     <center><h2>BlogIn</h2></center>
                 </div>
