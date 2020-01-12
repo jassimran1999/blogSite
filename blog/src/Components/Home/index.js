@@ -17,8 +17,12 @@ class Home extends React.Component{
         return (
             <div className="Home">
                 
+
                 <div className="HomeHeader">
                     <center><h2>BLOGwithME</h2></center>
+                </div>
+                <div className="initial">
+                    <h1>BLOG W/ ME</h1>
                 </div>
                 <div className="HomeBody">
                     { postProfileVal.map((item) => {return (<HomePost {...item} /> )})}
