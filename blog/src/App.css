@@ -1,7 +1,9 @@
 
 body{
-    background: url("https://i.pinimg.com/originals/60/00/ca/6000caf22dfb0749d0a40d488eaa0dc7.png");
+    background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg");
     background-size:cover;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
     background-position:top;
     /* background-repeat: no-repeat; */
     max-width: 100%;

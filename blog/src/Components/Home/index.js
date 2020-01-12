@@ -1,5 +1,4 @@
 import React from 'react';
-import ParticlesBg from 'particles-bg'
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,7 +17,7 @@ class Home extends React.Component{
             <div className="Home">
                 
                 <div className="HomeHeader">
-                    <center><h2>BlogIn</h2></center>
+                    <center><h2>BLOGwithME</h2></center>
                 </div>
                 <div className="HomeBody">
                     { postProfileVal.map((item) => {return (<HomePost {...item} /> )})}
