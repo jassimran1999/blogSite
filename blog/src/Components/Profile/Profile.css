@@ -4,7 +4,14 @@
     left: 50%;
     top:15%;
     transform: translate(-50%,0);
+    animation: fadein 500ms ease-in;
 }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .userInfo{
     display:flex;
     flex-direction: row;

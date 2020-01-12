@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -41,8 +42,13 @@ class Home extends React.Component{
 
         return (
             <div className="Home">
+                
+
                 <div className="HomeHeader">
-                    <center><h2>BlogIn</h2></center>
+                    <center><h2>BLOGwithME</h2></center>
+                </div>
+                <div className="initial">
+                    <h1>BLOG W/ ME</h1>
                 </div>
                 <div className="HomeBody">
                     { this.state.HomePostData.map((item) => {return (<HomePost {...item} /> )})}

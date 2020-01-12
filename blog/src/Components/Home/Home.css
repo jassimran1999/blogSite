@@ -7,7 +7,31 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%,0);
+    animation: fadein 2s ease-in;
 }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .HomeHeader {
     height:20vh;
+    animation: fadein 2s ease-in;
+}
+
+.initial {
+
+    text-align: center;
+    font-size: 50px;
+    /*color:black;*/
+    transform: translate(0%,120%);
+    z-index: 2;
+    animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1;}
+    99% { opacity: 0.01;width: 100%; height: 100%;}
+    100% { opacity: 0;width: 0; height: 0;}
 }

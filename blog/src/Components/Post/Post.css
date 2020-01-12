@@ -2,11 +2,16 @@
 width:60%;
 max-width: 1000px;
 height:65vh;
-
 position: absolute;
 left: 50%;
 transform: translate(-50%,0);
 margin-top:15px;
+animation: fadein 500ms ease-in;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .title{
