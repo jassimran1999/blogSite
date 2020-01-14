@@ -28,7 +28,7 @@ class Profile extends React.Component{
 
   sendUsername = ()=>{
     //let id = "localhost:5000/queryParams?id:"+this.props.match.params.userId
-    fetch('http://localhost:5000/queryParams?id='+ this.props.match.params.userId).then(response => {
+    fetch('http://localhost:5000/userHeader?id='+ this.props.match.params.userId).then(response => {
 		  return response.json();
 		}).then(res => {
 		  this.setState({
@@ -72,7 +72,7 @@ class Profile extends React.Component{
               </div>
             </div>
             <div className="posts">
-              { postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
+              { console.log("sdfsdfdsf",this.state.userData["postArr"]) && postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
             </div>
             <div className="end"> That's all folks.</div>
           </div>  

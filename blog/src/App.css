@@ -1,17 +1,19 @@
 
-body{
-    background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;
-  background-attachment: fixed;
-    background-position:top;
-    /* background-repeat: no-repeat; */
-    max-width: 100%;
-    /* background-color: black; */
-}
 
-.outer {
+.bg {
     /* background-color: black; */
+    background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg");
+    position:fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size:cover;
+    background-attachment: fixed;
+    filter: blur(4px) grayscale(40%) ;
 }
 
 /* .sign{

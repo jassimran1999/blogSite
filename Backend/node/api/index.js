@@ -23,8 +23,59 @@ const data = [
         userPhoto: "https://cda.kaust.edu.sa/_layouts/KAUST_ResearchCenters_Template/images/DefaultPersonPhoto.png",
         follow1: '132',
         following1: '156',
-        postArr:["jv41"],
+        postArr: [
+        {
+        id:'jv41',
+        username : value[0].username,
+        title : value[0].title,
+        date : Date.now(),
+        desc:"My first Post.",
+        share:'localhost:3000/jv41',
+        background:"black",
+        imgUrl:value[0].imgUrl,
+        thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    }, {
+        id:'jv41',
+        username : value[0].username,
+        title : value[0].title,
+        date : Date.now(),
+        desc:"My first Post.is abd ",
+        share:'localhost:3000/jv41',
+        background:"black",
+        imgUrl:value[0].imgUrl,
+        thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    }, {
+        id:'jv41',
+        username : value[0].username,
+        title : value[0].title,
+        date : Date.now(),
+        desc:"My first Post.",
+        share:'localhost:3000/jv41',
+        background:"black",
+        imgUrl:value[0].imgUrl,
+        thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    }, {
+        id:'jv41',
+        username : value[0].username,
+        title : value[0].title,
+        date : Date.now(),
+        desc:"My first Post.",
+        share:'localhost:3000/jv41',
+        background:"black",
+        imgUrl:value[0].imgUrl,
+        thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+    }, {
+        id:'jv41',
+        username : value[0].username,
+        title : value[0].title,
+        date : Date.now(),
+        desc:"My first Post.",
+        share:'localhost:3000/jv41',
+        background:"black",
+        imgUrl:value[0].imgUrl,
+        thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
     },
+    ]},
     [
             {
             id:'jv41',
@@ -80,9 +131,9 @@ const data = [
         }
         ],
 ]
-app.get('/queryParams',function(req,res){
+app.get('/userHeader',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");//fix for cors
-    console.log('queryParams',req.query)
+    console.log('userHeader',req.query)
     if(req.query.id === data[0].username)
     {
     res.send(data[0]);
@@ -91,6 +142,15 @@ app.get('/queryParams',function(req,res){
     {
         res.send({'username':'null'});
         
+    }
+})
+
+app.get('/userPosts',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");//fix for cors
+    console.log('userPosts',req.query)
+    if(req.query.id === data[0].username)
+    {
+    res.send(data[2]);
     }
 })
 
