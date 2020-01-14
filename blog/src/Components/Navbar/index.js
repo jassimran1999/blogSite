@@ -24,6 +24,9 @@ class Navbar extends Component {
                             <div className="navbar-header">
                                 <Link className="navbar-brand" to="/home" >Home</Link>
                             </div>
+                            <div className="">
+                                <Link className="navbar-brand" to="/home">BLOG with ME</Link> 
+                            </div>
                             <div className="nav navbar-nav navbar-right">
                                 <div>
                                 

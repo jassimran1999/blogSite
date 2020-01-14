@@ -45,7 +45,7 @@ class Home extends React.Component{
                 
 
                 <div className="HomeHeader">
-                    <center><h2>BLOGwithME</h2></center>
+                    
                 </div>
                 <div className="initial">
                     <h1>BLOG W/ ME</h1>

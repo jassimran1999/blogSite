@@ -27,7 +27,7 @@
     /*color:black;*/
     transform: translate(0%,120%);
     z-index: 2;
-    animation: fadeOut 2s;
+    animation: fadeOut 2s ease-out;
 }
 
 @keyframes fadeOut {

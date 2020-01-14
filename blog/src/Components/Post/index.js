@@ -29,9 +29,12 @@ class Post extends React.Component{
           </div>
           <div className="action">
             <div className="like">
-              <button>LIKE</button><br/>
-              <p className="likeNumber">{this.props.likes}</p>
+              <button><p className="likeNumber"><u>LIKE</u> {this.props.likes}</p></button>
             </div>
+            <div className="share">
+              <button><u>SHARE</u></button>
+            </div>
+          
             
           </div>
         </div>  
