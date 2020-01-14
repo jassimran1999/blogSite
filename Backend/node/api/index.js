@@ -25,7 +25,7 @@ const data = [
         following1: '156',
         postArr: [
         {
-        id:'jv41',
+        id:'jv21',
         username : value[0].username,
         title : value[0].title,
         date : Date.now(),
