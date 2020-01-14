@@ -130,6 +130,19 @@ const data = [
             thumbnail:"https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
         }
         ],
+
+        {
+            id:'jv41',
+            username : value[0].username,
+            title : 'Test Blog 1',
+            date : Date.now(),
+            content: 'The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.he new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.The new Tesla Cybertruck was unveiled last week and people have already placed a ton of orders. Tesla CEO Elon Musk updated on Twitter that the company has already received 200K orders so far.',
+            likes: '1',
+            share:'localhost:3000/jv41',
+            background:"black",
+            imgUrl:value[0].imgUrl,
+        
+        }
 ]
 app.get('/userHeader',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");//fix for cors
@@ -141,6 +154,20 @@ app.get('/userHeader',function(req,res){
     else
     {
         res.send({'username':'null'});
+        
+    }
+})
+
+app.get('/postHeader',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");//fix for cors
+    console.log('postHeader',req.query)
+    if(req.query.id === data[2].id)
+    {
+    res.send(data[2]);
+    }
+    else
+    {
+        res.send({'content':'null'});
         
     }
 })

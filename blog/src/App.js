@@ -61,7 +61,7 @@ class App extends Component {
         <Route path="/AddPost">
               <AddPost />
         </Route>
-        <Route path="/jv41">
+        <Route path="/post/:postId">
           <div>
             { postData.map((item) => {return (<Post {...item} /> )})}
           </div>
