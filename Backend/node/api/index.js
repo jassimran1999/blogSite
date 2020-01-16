@@ -1,6 +1,11 @@
 var express = require('../node_modules/express')
+var mongoose = require('../node_modules/mongoose')
+mongoose.connect('mongodb://localhost/blogDb')
 var app = express()
+var User = require('../Schemas/userData')
 var port = 5000
+
+
 const value = [{
     id:'jv41',
     username : 'jv4',
@@ -13,6 +18,7 @@ const value = [{
     imgUrl: "https://cda.kaust.edu.sa/_layouts/KAUST_ResearchCenters_Template/images/DefaultPersonPhoto.png",
 
 },];
+// test data moved from react constant files to node backend constant files. 
 const data = [
     {
         username : 'jv4',
@@ -147,15 +153,20 @@ const data = [
 app.get('/userHeader',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");//fix for cors
     console.log('userHeader',req.query)
-    if(req.query.id === data[0].username)
-    {
-    res.send(data[0]);
-    }
-    else
-    {
-        res.send({'username':'null'});
+    // if(req.query.id === data[0].username)
+    // {
+    // res.send(data[0]);
+    // }
+    // else
+    // {
+    //     res.send({'username':'null'});
         
-    }
+    // }
+User.find({'username':req.query.id}, function(err, users) {
+    if (err) throw err;
+    res.send(users);
+  });
+
 })
 
 app.get('/postHeader',function(req,res){
@@ -186,6 +197,14 @@ app.get('/homedata',function(req,res){
     console.log('homedata')
     res.send(data[1]);
 })
+
+
+
+
+
 app.listen(port , ()=>{console.log(`Listening on Port ${port}`)})
+
+
+
 
 // backend 

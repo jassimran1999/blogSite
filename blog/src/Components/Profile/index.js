@@ -45,6 +45,7 @@ class Profile extends React.Component{
   }
   render() {
     console.log(this.state.userData);
+    let userValues = this.state.userData;
       return (
         
         <div className="Profile">
@@ -55,26 +56,26 @@ class Profile extends React.Component{
           </switch>
           <div className="userBox" >
             <div className="userInfo">
-              <img className="userimage" src={this.state.userData.userPhoto} />
+              <img className="userimage" src={this.state.userData[0].userPhoto} />
               <div className="usercard">
-                <div className="userid">{this.state.userData.username}</div>
+                <div className="userid">{this.state.userData[0].username}</div>
                 <div className="follow">
                   <div className="following">
-                    <h4>Following</h4>{this.state.userData.following1}
+                    <h4>Following</h4>{this.state.userData[0].following1}
                   </div>
                   <div className="followers">
-                    <h4>Followers</h4>{this.state.userData.follow1} 
+                    <h4>Followers</h4>{this.state.userData[0].follow1} 
                   </div>
                 </div>
                 <button className="btn btn-sm btn-primary btn-block" onClick={this.followerIncrease} type="button">Follow</button>
                 <div className="descBox">
-                  <div className="userNameProf">{this.state.userData.name}</div>
-                  <div className="userDesc">{this.state.userData.description}</div>
+                  <div className="userNameProf">{this.state.userData[0].name}</div>
+                  <div className="userDesc">{this.state.userData[0].description}</div>
                 </div>
               </div>
             </div>
             <div className="posts">
-              {this.state.userPosts.map((item) => {return (<ProfilePost {...item} /> )})}
+              {postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
             </div>
             <div className="end"> That's all folks.</div>
           </div>  
