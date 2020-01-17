@@ -18,7 +18,7 @@ class Profile extends React.Component{
     super();
     this.state={
     userData:data,
-    userPosts:[ ],
+    userPosts:[],
     }
   }
 
@@ -32,9 +32,10 @@ class Profile extends React.Component{
     fetch('http://localhost:5000/userHeader?id='+ this.props.match.params.userId).then(response => {
 		  return response.json();
 		}).then(res => {
+      console.log(res[0])
 		  this.setState({
       userData: res,
-      userPosts: res["postArr"],
+      userPosts: res[0].postArr,
       })
 		});
   }
@@ -75,7 +76,7 @@ class Profile extends React.Component{
               </div>
             </div>
             <div className="posts">
-              {postProfileVal.map((item) => {return (<ProfilePost {...item} /> )})}
+              {this.state.userPosts.map((item) => {return (<ProfilePost {...item} /> )})}
             </div>
             <div className="end"> That's all folks.</div>
           </div>  

@@ -11,11 +11,15 @@ let userSchema = new Schema({
   follow1: Number,
   following1: Number,
   postArr: [{
-      id:String,
-      postDate: Date,
-      descPost: String,
-      thumbnail: String,
-      content: String,
+    id:String,
+    username : String,
+    title : String,
+    date : Date,
+    desc:String,
+    share:String,
+    background:String,
+    imgUrl:String,
+    thumbnail:String
   }]
 });
 
