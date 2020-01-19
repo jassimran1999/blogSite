@@ -14,7 +14,9 @@ var init = new User(
   follow1: '132',
   following1: '156',
   postArr: [{
-      id:'jv41',
+      username : "jv4",
+      title : "My first post.",
+      share:"https://localhost/jv41" ,
       postDate: Date.now(),
       descPost: "My first Post.",
       thumbnail: "https://images.unsplash.com/photo-1495443396064-16fd983acb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
@@ -22,7 +24,10 @@ var init = new User(
     }
 )
 
-User.find({'username':'jv4'}, function(err, users) {
-    if (err) throw err;
-    console.log(users);
-  });
+User.find(
+    {username:'jv4'},
+    function(err, doc) {
+        if (err) throw err;
+        console.log(doc)
+        console.log("POST\n" + doc[0]['postArr']);}
+)

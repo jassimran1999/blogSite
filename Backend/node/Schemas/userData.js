@@ -4,23 +4,30 @@ let Schema = mongoose.Schema;
 let userSchema = new Schema({
   name: String,
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
   description: String,
+  email: { type: String, required: true, unique: true },
+  phoneNumber: { type: Number, unique: true },
   createdAt: Date,
   userPhoto: String,
-  follow1: Number,
-  following1: Number,
+  follows: Number,
+  following: Number,
+  password: String,
   postArr: [{
-    id:String,
-    username : String,
-    title : String,
-    date : Date,
-    desc:String,
-    share:String,
-    background:String,
-    imgUrl:String,
-    thumbnail:String
-  }]
+    postId:String,
+  }],
+  followed:[{
+    userId:String,
+    }],
+  following:[{
+    userId:String,
+  }],
+  postsLiked:[{
+    postId:String,
+  }],
+  currentlyReading:[{
+    postId:String,
+    percentRead:Number,
+  }],
 });
 
 
