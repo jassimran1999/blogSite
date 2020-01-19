@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw, draftToHtml } from 'draft-js';
 import './richText.css'
+import abc from '../../Constants/test'
 
 export default class RichEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty() };
+    this.state = { editorState: EditorState.createEmpty()
+                };
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
     this.onTab = (e) => this._onTab(e);
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+    this.publishEvent=()=>{
+        const item = convertToRaw(this.state.editorState.getCurrentContent());
+        console.log(JSON.stringify(item))
+    };
   }
 
   _handleKeyCommand(command) {
@@ -39,16 +45,11 @@ export default class RichEditor extends Component {
 
   render() {
     const { editorState } = this.state;
-
+    
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
     let className = 'editor';
     var contentState = editorState.getCurrentContent();
-    const rawContentState = convertToRaw(
-        this.state.editorState.getCurrentContent()
-    );
-    const rawState = JSON.stringify(rawContentState);
-    console.log(rawState);
     if (!contentState.hasText()) {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
         className += ' RichEditor-hidePlaceholder';
@@ -56,16 +57,20 @@ export default class RichEditor extends Component {
     }
     return (
       <div className="boundingBox">
+        
         <div className="containerEditor">
+        <div className="options">
             <div className="controls-cover">
-          <BlockStyleControls
-            editorState={editorState}
-            onToggle={this.toggleBlockType}
-          />
-          <InlineStyleControls
-            editorState={editorState}
-            onToggle={this.toggleInlineStyle}
-          />
+            <BlockStyleControls
+                editorState={editorState}
+                onToggle={this.toggleBlockType}
+            />
+            <InlineStyleControls
+                editorState={editorState}
+                onToggle={this.toggleInlineStyle}
+            />
+            </div>
+            <div className="publish" onClick={this.publishEvent}>Publish</div>
           </div>
           <div className={className} onClick={this.focus}>
             <Editor

@@ -7,6 +7,7 @@ import {
     useRouteMatch,
     withRouter
 } from 'react-router-dom';
+import { Editor, EditorState, RichUtils, convertFromRaw } from 'draft-js';
 import './Profile.css';
 import postProfileVal from '../../Constants/profilePostConstants' ;
 import data from '../../Constants/initialiserUserData';

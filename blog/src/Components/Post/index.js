@@ -7,8 +7,9 @@ import {
     useRouteMatch,
     withRouter
 } from 'react-router-dom';
+import { Editor, EditorState, RichUtils, convertFromRaw } from 'draft-js';
 import './Post.css';
-
+import abc from '../../Constants/test'
 class Post extends React.Component{
 
   constructor(){
@@ -32,7 +33,13 @@ componentDidMount(){
 }
 
   render() {
+
     const link = '/user/'+this.state.postData.username;
+    this.state.editorState = EditorState.createWithContent(
+      convertFromRaw(abc[0])
+    );
+    
+    
       return (
         <div className="postBox" >
           <div className="title">
@@ -47,7 +54,7 @@ componentDidMount(){
             </div>
           </div>
           <div className="content">
-               {this.state.postData.content}
+          <Editor editorState={this.state.editorState} readOnly={true} />
           </div>
           <div className="action">
             <div className="like">
