@@ -15,7 +15,7 @@ class Navbar extends Component {
     render() {
         return (
             
-           
+        
            
             <div className="row" style={{width:'102%',zIndex:'1',borderBottomStyle:'solid',backgroundColor:'#101820FF',position:'fixed'}}>
                 <div className="col">
