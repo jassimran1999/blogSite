@@ -15,14 +15,6 @@
     color: #999;
   }
 
-  .signUpOuter {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background-color: rgba(0,0,0,0.9);
-  }
-
-
   h3 {
     margin-left: 15px
 }

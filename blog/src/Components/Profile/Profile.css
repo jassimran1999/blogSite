@@ -1,3 +1,4 @@
+@media all and (min-width: 480px) {
 .Profile{
     width: 65%;
     position: absolute;
@@ -72,4 +73,5 @@
     width:50%;
     text-align: center;
     /* border-style: solid; */
+}
 }

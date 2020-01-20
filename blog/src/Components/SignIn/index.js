@@ -10,12 +10,12 @@ import {
 class Signin extends React.Component{
         render() {
             return (
-              <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh',
-              backgroundColor: 'rgba(0,0,0,0.9)'}}>
+              <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '92vh',
+              backgroundColor: 'rgba(0,0,0,0.6)'}}>
                 <form className="form-signin">
                   <h2 className="form-signin-heading">Please Sign In</h2>
                   <label for="inputEmail" className="sr-only">Email address</label>
-                  <input type="email" onChange={this.handleEmailChange} id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                  <input type="email" onChange={this.handleEmailChange} id="inputEmail" className="form-control" placeholder="Username/Email address" required autofocus />
                   <br/><br/>
                   <label for="inputPassword" className="sr-only">Password</label>
                   <input type="password" onChange={this.handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
