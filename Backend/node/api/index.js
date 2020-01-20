@@ -3,8 +3,26 @@ var mongoose = require('../node_modules/mongoose')
 mongoose.connect('mongodb://localhost/blogDb')
 var app = express()
 var User = require('../Schemas/userData')
+var Post = require('../Schemas/postData')
 var port = 5000
 
+const nilPost = {
+    _id:0,
+    name: 0,
+  username: 0,
+  description: 0,
+  email: 0,
+  phoneNumber: 0,
+  createdAt: 0,
+  follows: 0,
+  following: 0,
+  password: 0,
+  postArr: 0,
+  followed:0,
+  following:0,
+  postsLiked:0,
+  currentlyReading:0,
+}
 
 const value = [{
     id:'jv41',
@@ -162,7 +180,7 @@ app.get('/userHeader',function(req,res){
     //     res.send({'username':'null'});
         
     // }
-User.find({'username':req.query.id}, function(err, users) {
+User.find({'username':req.query.id},{_id:0}, function(err, users) {
     if (err) throw err;
     console.log(users)
     res.send(users);
@@ -170,18 +188,23 @@ User.find({'username':req.query.id}, function(err, users) {
 
 })
 
+
 app.get('/postHeader',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");//fix for cors
     console.log('postHeader',req.query)
-    if(req.query.id === data[2].id)
-    {
-    res.send(data[2]);
-    }
-    else
-    {
-        res.send({'content':'null'});
-        
-    }
+    Post.find({'id':req.query.id},{_id:0,thumbnail:0,}, function(err, users) {
+        if (err) throw err;
+
+        User.find({'username':req.query.id},{_id:0}, function(err, userVal) {
+        if (err) throw err;
+        console.log(userVal);
+        res.send(users);
+        });
+    });
+})
+
+app.post('/api/form-submit-url',function(req,res){
+    console.log(req.body)
 })
 
 app.get('/userPosts',function(req,res){

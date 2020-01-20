@@ -9,13 +9,13 @@ import {
 } from 'react-router-dom';
 import { Editor, EditorState, RichUtils, convertFromRaw } from 'draft-js';
 import './Post.css';
-import abc from '../../Constants/test'
+import abc from '../../Constants/postConstantInit'
 class Post extends React.Component{
 
   constructor(){
     super();
     this.state={
-    postData :[ ], 
+    postDataVal :abc, 
     }
   }
   sendPostId = ()=>{
@@ -23,7 +23,7 @@ class Post extends React.Component{
 		  return response.json();
 		}).then(res => {
 		  this.setState({
-      postData: res,
+      postDataVal: res,
       })
 		});
   }
@@ -33,10 +33,10 @@ componentDidMount(){
 }
 
   render() {
-
-    const link = '/user/'+this.state.postData.username;
+    let postData = this.state.postDataVal[0]
+    const link = '/user/'+postData.userId;
     this.state.editorState = EditorState.createWithContent(
-      convertFromRaw(abc[0])
+      convertFromRaw(JSON.parse(postData.content))
     );
     
     
@@ -45,12 +45,12 @@ componentDidMount(){
           <div className="title">
             <Link className="linkUsername" exact to={link}>
               <div className="postcard">
-                <img className="userimg" src={this.state.postData.imgUrl} width="30px" height="30px"/>
-                <div className="username">{this.state.postData.username}</div>
+                <img className="userimg" src={postData.imgUrl} width="30px" height="30px"/>
+                <div className="username">{postData.userId}</div>
               </div>
             </Link>
             <div className="postTitle">
-              {this.state.postData.title}
+              {postData.title}
             </div>
           </div>
           <div className="content">
@@ -58,7 +58,7 @@ componentDidMount(){
           </div>
           <div className="action">
             <div className="like">
-              <button><p className="likeNumber"><u>LIKE</u> {this.state.postData.likes}</p></button>
+              <button><p className="likeNumber"><u>LIKE</u> {postData.likes}</p></button>
             </div>
             <div className="share">
               <button><u>SHARE</u></button>

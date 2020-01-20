@@ -28,7 +28,7 @@ class App extends Component {
       <switch>
       <Router>
         
-      <Navbar /><br/><br/>
+      <Navbar /><br/><br/><br/>
        
        
         
@@ -50,12 +50,6 @@ class App extends Component {
         </Route>
         <Route path="/Signin">
               <Signin />
-        </Route>
-        <Route path="/Name">
-         <Name />
-        </Route>
-        <Route path="/ImageUpload">
-         <ImageUpload />
         </Route>
   
         <Route path="/AddPost">

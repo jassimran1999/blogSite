@@ -43,7 +43,6 @@ class Profile extends React.Component{
 
   followerIncrease = () => {
     this.setState({ follow1 : this.state.follow1+1 })
- //   this.setState.userData.follow1=this.state.userData.follow1+1;
   }
   render() {
     console.log(this.state.userData);

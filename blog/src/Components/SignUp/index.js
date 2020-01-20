@@ -13,8 +13,12 @@ class Signup extends React.Component{
   constructor(props) {
     super(props);
     this.state = {file: '',imagePreviewUrl: ''};
+    let isAuth = localStorage.getItem('isAuthenticated')
+        this.state = { isAuthenticated: isAuth==='true', user: null, token: ''};
+        console.log(this.state.isAuthenticated)
   }
 
+  
   _handleSubmit(e) {
     e.preventDefault();
     // TODO: do something with -> this.state.file
@@ -111,3 +115,54 @@ class Signup extends React.Component{
     }
 }
 export default Signup;
+
+// import React, { Component } from 'react';
+
+// class App extends Component {
+
+//     constructor() {
+//         super();
+//         let isAuth = localStorage.getItem('isAuthenticated')
+//         this.state = { isAuthenticated: isAuth==='true', user: null, token: ''};
+//         console.log(this.state.isAuthenticated)
+//     }
+
+//     localSet = (value,setTo) =>{
+//         localStorage.setItem(value,setTo);
+//       };
+
+//     logout = () => {
+//         this.localSet("isAuthenticated",false);
+//         this.setState({isAuthenticated: false, token: '', user: null})
+//     };
+    
+//     render() {
+//         let content = !!this.state.isAuthenticated ?
+//             (
+//                 <div>
+//                     <p>Authenticated</p>
+//                     <div>
+//                         {"test"}
+//                     </div>
+//                     <div>
+//                         <button onClick={this.logout} className="button">
+//                             Log out
+//                         </button>
+//                     </div>
+//                 </div>
+//             ) :
+//             (
+//                 <div>
+//                   {"LOGGED OUT"}
+//                 </div>
+//             );
+
+//         return (
+//             <div className="App">
+//                 {content}
+//             </div>
+//         );
+//     }
+// }
+
+// export default App;

@@ -11,10 +11,9 @@ const postSchema = new Schema({
     imgUrl:String,
     thumbnail:String,
     views:Number,
-    
+    userId:String,
+    description:String,
 });
-
-
 
 let Post = mongoose.model('Post', postSchema);
 module.exports = Post;
