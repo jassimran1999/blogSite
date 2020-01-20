@@ -164,6 +164,7 @@ app.get('/userHeader',function(req,res){
     // }
 User.find({'username':req.query.id}, function(err, users) {
     if (err) throw err;
+    console.log(users)
     res.send(users);
   });
 
