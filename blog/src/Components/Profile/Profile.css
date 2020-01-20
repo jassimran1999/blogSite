@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) {
+@media all and (height: 100vh) {
 .Profile{
     width: 65%;
     position: absolute;
