@@ -50,11 +50,6 @@ class Profile extends React.Component{
       return (
       
         <div className="Profile">
-          <switch>
-            <Router>
-              <Navbar2 />
-            </Router>
-          </switch>
           <div className="userBox" >
             <div className="userInfo">
               <img className="userimage" src={this.state.userData[0].userPhoto} />

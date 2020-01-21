@@ -18,7 +18,6 @@ class Signin extends React.Component{
         console.log(this.state.isAuthenticated)
   }
 
-
   signIn(event) {
     event.preventDefault();
     const data = new FormData(event.target)

@@ -1,4 +1,4 @@
-@media all and (height: 100vh) {
+@media all and (orientation:landscape) {
 .Profile{
     width: 65%;
     position: absolute;
@@ -75,3 +75,81 @@
     /* border-style: solid; */
 }
 }
+
+@media all and (orientation:portrait) {
+    .Profile{
+        width: 65%;
+        position: absolute;
+        left: 50%;
+        top:15%;
+        transform: translate(-50%,0);
+        animation: fadein 500ms ease-in;
+    }
+    
+    @keyframes fadein {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .userInfo{
+        display:flex;
+        flex-direction: row;
+        height:50%;
+        max-height:200px; 
+        padding-left:10%; 
+    
+    }
+    .usercard{
+        display:flex;
+        flex-direction: column;
+        padding-left: 10%;
+        justify-content: space-around;
+    }
+    .descBox{
+        height: 50%;
+    }
+    .userid{
+        height: 50%;
+        display: flex;
+        font-size: 2em;
+    }
+    .userNameProf{
+        font-size: 1.5em;
+    }
+    .userimage{
+        border-radius: 50%;
+        border-style: solid;
+        border-width:5px;
+        border-color: #acacac;
+        width: 50%;
+        height: 100%;
+        /* max-height:200px */
+    }
+    .userDesc{
+        white-space: pre-line;
+    }
+    .end{
+        padding-top:5vh;
+        text-align: center;
+        color: dimgray;
+    }
+    .posts {
+        padding-top:10vh;
+    }
+    .follow {
+        display: flex;
+        flex-direction: row;
+        /* border-style: solid; */
+    }
+    .following {
+        width:50%;
+        text-align: center;
+        
+        /* border-style: solid; */
+    }
+    .followers {
+        width:50%;
+        text-align: center;
+        /* border-style: solid; */
+    }
+    }

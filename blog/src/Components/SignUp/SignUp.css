@@ -32,7 +32,7 @@
     width: 300px;
 }
   
-.imgPreview{
+.imgPreview {
   text-align: center;
   margin: 5px 15px;
   height: 200px;
@@ -45,8 +45,8 @@
   transform: translate(25%,0);
   
 }
-.img1{
-    width: 100%;
+.imgUploaded{
+    width: 10%;
     height: 100%;
 }
   

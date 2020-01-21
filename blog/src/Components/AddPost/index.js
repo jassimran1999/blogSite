@@ -19,8 +19,13 @@ class AddPost extends React.Component{
 
 
         render() {
+          // document.body.style = 'background: red;';
           let content = !!this.state.isAuthenticated ?// right here conditional statement content will get one of the 2 navbar codes.
-        (<RichText/>):(<Redirect to="/Signin"/>)
+        (
+          <div className="addPostBg">
+            <RichText/>
+            </div>):
+        (<Redirect to="/Signin"/>)
 
 
             return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Signup from './../SignUp';
 import Signin from './../SignIn';
+import AddPost from './../AddPost';
 import Home from './../Home';
 // import App from './../../App.js';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -35,7 +36,9 @@ class Navbar extends Component {
                             </div>
                             <div className="nav navbar-nav navbar-right">
                                 <div>
-                                <Link exact to="/user/jv4">{"Profile"}</Link>
+                                <Link exact to="/user/jv4">{"Profile"}</Link>&nbsp;|&nbsp;
+                                <Link exact to="/AddPost">{"Add"}</Link>&nbsp;|&nbsp;
+                                <Link exact to="/home">{"Log Out"}</Link>
                                 </div>
                                 
                             </div>
@@ -58,7 +61,7 @@ class Navbar extends Component {
                             <div>
                           
                             {/* with signup if false */}
-                            <Link exact to="/Signin">{"Sign In"}</Link>&nbsp;
+                            <Link exact to="/Signin">{"Sign In"}</Link>&nbsp;|&nbsp;
                             <Link exact to="/Signup">{'Signup'}</Link>
                             
                             </div>

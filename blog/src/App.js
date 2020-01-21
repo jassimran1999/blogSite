@@ -2,8 +2,6 @@ import React,{Component} from 'react';
 import './App.css';
 import Signup from './Components/SignUp';
 import Signin from './Components/SignIn';
-import Name from './Components/SignDetails/Name';
-import ImageUpload from './Components/SignDetails/ImageUpload';
 import Home from './Components/Home';
 import Post from './Components/Post';
 import Profile from './Components/Profile';

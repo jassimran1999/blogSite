@@ -5,7 +5,8 @@ import {
     Switch,
     Route,
     Link,
-    useRouteMatch
+    useRouteMatch,
+    Redirect
   } from 'react-router-dom';
 
 class Signup extends React.Component{
@@ -45,13 +46,13 @@ class Signup extends React.Component{
     let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-          $imagePreview = (<img className="img1" src={imagePreviewUrl} />);
+          $imagePreview = (<img className="imgUploaded" src={imagePreviewUrl} />);
         } else {
           $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
         }
-
-      return (
-        <div style={{display: 'flex',flexDirection:'column',  justifyContent:'center', alignItems:'center', height: '220vh',
+        let content = !this.state.isAuthenticated ?
+        (
+          <div style={{display: 'flex',flexDirection:'column',  justifyContent:'center', alignItems:'center', height: '220vh',
         backgroundColor: 'rgba(0,0,0,0.6)'}}>
           <form className="form-signin">
             <h2 className="form-signin-heading">Please Sign Up</h2><br/>
@@ -107,9 +108,19 @@ class Signup extends React.Component{
                 onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
           </div>
           <br/>
-          <Link to="/Name"><button className="btn btn-lg btn-primary btn-block" type="button">Sign up</button></Link>
+          <Link><button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="Submit">Sign up</button></Link>
           
         </div>
+
+        ):
+        (
+          <Redirect to="/home" />
+        )
+
+      return (
+        <div className="App">
+        {content}
+    </div>
         
       )
     }

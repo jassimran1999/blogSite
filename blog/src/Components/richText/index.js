@@ -16,9 +16,36 @@ export default class RichEditor extends Component {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
     this.publishEvent=()=>{
         const item = convertToRaw(this.state.editorState.getCurrentContent());
-        console.log(JSON.stringify(item))
+        console.log(JSON.stringify(item));
+        document.getElementById("afterPublish").style.display = "flex";
+        document.getElementById("afterPublish").style.flexDirection = "column";
+
+
     };
   }
+
+  _handleSubmit(e) {
+    e.preventDefault();
+    // TODO: do something with -> this.state.file
+    console.log('handle uploading-', this.state.file);
+  }
+
+  _handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
+
 
   _handleKeyCommand(command) {
     const {editorState} = this.state;
@@ -44,6 +71,13 @@ export default class RichEditor extends Component {
   }
 
   render() {
+    let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+          $imagePreview = (<img className="postImgUploaded" src={imagePreviewUrl} />);
+        } else {
+          $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+        }
     const { editorState } = this.state;
     
     // If the user changes block type before entering any text, we can
@@ -85,8 +119,34 @@ export default class RichEditor extends Component {
               spellCheck={true}
             />
           </div>
-
-       </div></div>
+       </div>
+       <div id="afterPublish">
+          <label for="inputTitle" name ="title" className="sr-only">Title</label>
+          <input type="text"  name="inputTitle" id="inputTitle" className="form-control" placeholder="Title" autofocus />
+          <label for="inputDesc" name ="desc" className="sr-only">Description</label>
+          <textarea name="inputDesc" id="inputDesc" className="form-control" placeholder="Description" autofocus />
+          
+          <div className="postPreviewComponent">
+           <center><form onSubmit={(e)=>this._handleSubmit(e)}>
+              <input className="postFileInput" 
+                type="file" 
+                onChange={(e)=>this._handleImageChange(e)} />
+            </form>
+            <div className="postImgPreview">
+              {$imagePreview}
+            </div>
+            <br/>
+            <button className="postSubmitButton" 
+                type="submit" 
+                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+                <br/><br/>
+                <button className="doneButton"type="submit">POST</button>
+                </center>
+          </div>
+          
+          </div>
+          
+       </div>
     );
   }
 }
