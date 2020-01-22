@@ -35,8 +35,8 @@
 .imgPreview {
   text-align: center;
   margin: 5px 15px;
-  height: 200px;
-  width: 200px;
+  max-height: 200px;
+  max-width: 200px;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-top: 5px solid gray;
@@ -46,8 +46,8 @@
   
 }
 .imgUploaded{
-    width: 10%;
-    height: 100%;
+    max-width: 10%;
+    max-height: 100%;
 }
   
 .previewText{
