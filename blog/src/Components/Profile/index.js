@@ -20,6 +20,7 @@ class Profile extends React.Component{
     this.state={
     userData:data,
     userPosts:[],
+    follow1 : 1
     }
   }
 
@@ -41,8 +42,11 @@ class Profile extends React.Component{
 		});
   }
 
-  followerIncrease = () => {
-    this.setState({ follow1 : this.state.follow1+1 })
+  followerIncrease() {
+    this.setState(prevState => ({ 
+      follow1 : prevState.follow1+1 
+    }))
+    console.log(this.state.count)
   }
   render() {
     console.log(this.state.userData);
@@ -63,7 +67,7 @@ class Profile extends React.Component{
                     <h4>Followers</h4>{this.state.userData[0].follow1} 
                   </div>
                 </div>
-                <button className="btn btn-sm btn-primary btn-block" onClick={this.followerIncrease} type="button">Follow</button>
+                <button className="btn btn-sm btn-primary btn-block" onClick={()=>this.followerIncrease()} type="button">Follow</button>
                 <div className="descBox">
                   <div className="userNameProf">{this.state.userData[0].name}</div>
                   <div className="userDesc">{this.state.userData[0].description}</div>
