@@ -26,7 +26,7 @@ class App extends Component {
       <switch>
       <Router>
         
-      <Navbar /><br/><br/><br/>
+      <Navbar /><br/><br/>
        
        
         

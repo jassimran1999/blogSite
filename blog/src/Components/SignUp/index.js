@@ -49,7 +49,7 @@ class Signup extends React.Component{
     }
     let content = !this.state.isAuthenticated ?
       (
-        <div style={{display: 'flex',flexDirection:'column',  justifyContent:'center', alignItems:'center', height: '220vh',
+        <div style={{display: 'flex',flexDirection:'column',  justifyContent:'center', alignItems:'center', height:'200vh',
         backgroundColor: 'rgba(0,0,0,0.6)'}}>
           <form>
             <h2>Please Sign Up</h2><br/>

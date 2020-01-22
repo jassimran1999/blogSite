@@ -35,18 +35,15 @@ class Signin extends React.Component{
               <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '92vh',
               backgroundColor: 'rgba(0,0,0,0.6)'}}>
                 <form className="form-signin" onSubmit={this.signIn}>
-                  <h2 className="form-signin-heading">Please Sign In</h2>
-                  <label for="inputEmail" name ="email" className="sr-only">Email address</label>
-                  <input type="email"  name="inputEmail" onChange={this.handleEmailChange} id="inputEmail" className="form-control" placeholder="Username/Email address" required autofocus />
-                  <br/><br/>
-                  <label for="inputPassword" className="sr-only">Password</label>
-                  <input type="password" onChange={this.handlePasswordChange} id="inputPassword" className="form-control" placeholder="Password" required />
-                  <br/><br/>
-                  <button className="btn btn-lg btn-primary btn-block" onClick={this.signIn} type="submit">Sign in</button>
-                  
-                <div>
-                  <Link to="/Signup">{'Signup'}</Link>
-                </div>
+                  <h2>Please Sign In</h2><br/>
+                  <input className="form-control" id="inputEmail" type="email" placeholder="Username/Email address" required autofocus />
+                  <br/>
+                  <input className="form-control" id="inputPassword" type="password" placeholder="Password" required />
+                  <br/>
+                  <button className="btn btn-lg btn-primary btn-block" onClick={this.signIn} type="submit">Sign in</button> 
+                  <div>
+                    <Link to="/Signup">{'Signup'}</Link>
+                  </div>
                 </form>
               </div>):
               (

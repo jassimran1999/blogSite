@@ -12,11 +12,10 @@ import './HomePost.css';
 class HomePost extends React.Component{
     
     render() {
-      const link1 = '/'+this.props.id;
+      const link1 = '/post/'+this.props.id;
       const link2 = '/user/'+this.props.username;
       return (      
-        <div className="postOuter">
-              
+        <div className="postOuter">  
           <div className="homePost" >
             <Link className="linkHomeUser" exact to={link2}>
               <div className="postHead">      
