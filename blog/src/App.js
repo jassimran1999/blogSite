@@ -14,7 +14,8 @@ import {
   Switch,
   Route,
   Link,
-  useRouteMatch
+  useRouteMatch,
+  Redirect
 } from 'react-router-dom';
 
 class App extends Component {
@@ -23,22 +24,11 @@ class App extends Component {
       <div className="outer" >
       <div className="bg"/>
       
-      <switch>
+      
       <Router>
         
       <Navbar /><br/><br/>
-       
-       
-        
-       {/* <div className="background">
-        <div >
-        <div className="sign" align="center">
-          <Link to="/Signup"><p className="sign1">SIGN UP</p></Link>
-          <Link to="/Signin"><p className="sign1">SIGN IN</p></Link>
-          </div>  
-        </div> 
-        </div>   */}
-           
+      <switch>
        <Route path="/home">
          <Home />
            </Route>
@@ -53,21 +43,21 @@ class App extends Component {
         <Route path="/AddPost">
               <AddPost />
         </Route>
-        <Route path="/post/:postId">
+        <Route path="/posts/:postId">
           <div>
             { postData.map((item) => {return (<Post {...item} /> )})}
           </div>
         </Route>
-        <Route path="/user/:userId">
+        <Route path="/users/:userId">
           <div>
             { userData.map((item) => {return (<Profile {...item} /> )})}
           </div>
         </Route>
-        
+        </switch>
         </Router>
   
         
-        </switch>
+        
         
       
   
@@ -75,6 +65,7 @@ class App extends Component {
     );
 
   }
+  
   
 }
 
