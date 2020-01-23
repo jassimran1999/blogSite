@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const usersSchema=new mongoose.Schema({
     
     username: { type: String, required: true, unique: true },
-    password: {type: String, required},
+    password: {type: String, required:true},
     name: String,
     description: String,
     email: { type: String, required: true, unique: true },
@@ -32,8 +32,9 @@ const usersSchema=new mongoose.Schema({
 
 const UsersModel = mongoose.model("Users", usersSchema, "userss");
 
-UsersModel.findUser=function (req,callBack) {
-    UsersModel.find({username:req.session.username},callBack);
+UsersModel.findUsers=function (req,callBack) {
+    console.log(req)
+    UsersModel.find(req,callBack);
 }
 
 UsersModel.findUserForLogin = function (req, callBack) {

@@ -27,4 +27,6 @@ var init = new Post(
 //         console.log("POST\n")}
 // )
 
-init.save();
+User.find({username:'jv4'},function(res,require){
+  console.log(require)
+})

@@ -3,23 +3,24 @@ const router = express.Router();
 const UsersModel = require('./../models/users');
 
 router.get('', (req, res) => {
-    UsersModel.findUser(req, (error, response) => {
+    
+    UsersModel.findUsers(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
-            // console.log("Success response is: ", response);
+            console.log(response)
             res.send(response);
         }
     });
 });
 
 router.post('/add', (req, res) => {
-    UsersModel.addUser(req, (error, response) => {
+    UsersModel.addUser(req.query, (error, response) => {
         if (error) {
             console.log("Error is: ", error);
             res.send(error);
         }
         if (response) {
-            req.session.username = response.username
+            //req.session.username = response.username
             console.log("Success response is: ", JSON.stringify(response));
             res.send('User added successfully');
         }
@@ -27,7 +28,7 @@ router.post('/add', (req, res) => {
 });
 
 router.post('/Signin', (req, res) => {
-    UsersModel.findUserForLogin(req, (error, response) => {
+    UsersModel.findUserForLogin(req.query, (error, response) => {
         if (error) {
             console.log("Error is: ", error);
             res.send(error);
@@ -45,7 +46,7 @@ router.post('/Signin', (req, res) => {
 })
 
 router.put('/update', (req, res) => {
-    UsersModel.updateUsers(req, (error, response) => {
+    UsersModel.updateUsers(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
             // console.log("Success response is: ", response);

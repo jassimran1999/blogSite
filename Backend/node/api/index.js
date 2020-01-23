@@ -1,10 +1,10 @@
 var port = 5000
 const express = require('../node_modules/express');
 const bodyParser = require("body-parser");
-require('./dbConnection');
+require('../dbConnection');
 var users = require('../routes/users');
 var posts = require('../routes/posts');
-const UsersModel = require('./models/users');
+const UsersModel = require('../models/users');
 const session = require('express-session');
 //var mongoose = require('../node_modules/mongoose')
 //mongoose.connect('mongodb://localhost/blogDb')
@@ -13,7 +13,7 @@ const session = require('express-session');
 var app = express()
 var cookieValidator = (req, res, next) => {
     if (req.session.username) {
-        UsersModel.findUser(req, (err, res) => {
+        UsersModel.findUsers(req, (err, res) => {
             if (err) res.status(401).send("User not authenticated");
             if (res && res.length == 0) {
                 res.status(401).send("User not authenticated");
@@ -36,7 +36,7 @@ app.use(session({
 app.use("/", express.static('static'))
 app.use("/home", express.static('static'))
 
-// Middleware
+
 app.use("*", (req, res, next) => {
     console.log("Middleware is called");
     res.setHeader('Access-Control-Allow-Origin', "*")
@@ -46,7 +46,7 @@ app.use("*", (req, res, next) => {
 })
 
 app.use('/users', users);
-app.use('/posts', cookieValidator, books);
+app.use('/posts', cookieValidator, posts);
 
 app.get("/", function (req, res) {
     res.send("Blog");

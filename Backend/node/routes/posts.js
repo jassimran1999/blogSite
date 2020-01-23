@@ -3,7 +3,7 @@ const router = express.Router();
 const PostsModel = require('./../models/posts');
 
 router.get('', (req, res) => {
-    PostsModel.findPosts(req, (error, response) => {
+    PostsModel.findPosts(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
             // console.log("Success response is: ", response);
@@ -13,7 +13,7 @@ router.get('', (req, res) => {
 });
 
 router.post('/addPost', (req, res) => {
-    PostsModel.addPost(req, (error, response) => {
+    PostsModel.addPost(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
             // console.log("Success response is: ", response);
@@ -23,7 +23,7 @@ router.post('/addPost', (req, res) => {
 });
 
 router.put('/updatePost', (req, res) => {
-    PostsModel.updatePost(req, (error, response) => {
+    PostsModel.updatePost(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
             // console.log("Success response is: ", response);
@@ -33,7 +33,7 @@ router.put('/updatePost', (req, res) => {
 });
 
 router.delete('/deletePost', (req, res) => {
-    PostsModel.deletePost(req, (error, response) => {
+    PostsModel.deletePost(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
             // console.log("Success response is: ", response);

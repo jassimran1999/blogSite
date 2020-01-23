@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
     description:String,
 })
 
-const PostsModel = mongoose.model("Posts", bookSchema);
+const PostsModel = mongoose.model("Posts", postSchema);
 
 PostsModel.findPosts = function (req, callBack) {
     let id = req.query.id;
@@ -35,7 +35,7 @@ PostsModel.updatePost = function (req, callBack) {
     PostsModel.updateOne(query, post, callBack);
 }
 
-PostsModel.deleteBook = function (req, callBack) {
+PostsModel.deletePost = function (req, callBack) {
     let query = { _id: req.query.id };
     PostsModel.deleteOne(query, callBack);
 }
