@@ -9,7 +9,7 @@ router.get('', (req, res) => {
         if (error) console.log("Error is: ", error);
         if (response) {
              console.log("Success response is: ", response);
-            res.send(response[0]);
+            res.send(response);
         }
     });
 });

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 require('../dbConnection');
 var users = require('../routes/users');
 var posts = require('../routes/posts');
+var homePost = require('../routes/home');
 const UsersModel = require('../models/users');
 const session = require('express-session');
 //var mongoose = require('../node_modules/mongoose')
@@ -47,9 +48,11 @@ app.use("*", (req, res, next) => {
 
 app.use('/users', users);
 // app.use('/posts', cookieValidator, posts);
- app.use('/posts', posts);
+app.use('/posts', posts);
 
-app.get("/", function (req, res) {
+//app.use('/home',homePost);
+
+app.get("/homedata", function (req, res) {
     res.send("Blog");
 })
 app.listen(port , ()=>{console.log(`Listening on Port ${port}`)})
