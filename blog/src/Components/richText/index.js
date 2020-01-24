@@ -14,6 +14,7 @@ export default class RichEditor extends Component {
     this.onTab = (e) => this._onTab(e);
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+
     this.publishEvent=()=>{
         const item = convertToRaw(this.state.editorState.getCurrentContent());
         console.log(JSON.stringify(item));
@@ -90,6 +91,8 @@ export default class RichEditor extends Component {
       }
     }
     return (
+      <div>
+        <form onSubmit={this._addPost}>
       <div className="boundingBox">
         
         <div className="containerEditor">
@@ -121,17 +124,17 @@ export default class RichEditor extends Component {
           </div>
        </div>
        <div id="afterPublish">
-          <label for="inputTitle" name ="title" className="sr-only">Title</label>
-          <input type="text"  name="inputTitle" id="inputTitle" className="form-control" placeholder="Title" autofocus />
-          <label for="inputDesc" name ="desc" className="sr-only">Description</label>
-          <textarea name="inputDesc" id="inputDesc" className="form-control" placeholder="Description" autofocus />
+          
+          <input type="text" className="form-control" ref="title" placeholder="Title" autofocus />
+          <br/>
+          <textarea className="form-control" ref="description" placeholder="Description" autofocus />
           
           <div className="postPreviewComponent">
-           <center><form onSubmit={(e)=>this._handleSubmit(e)}>
+           <center>
               <input className="postFileInput" 
                 type="file" 
                 onChange={(e)=>this._handleImageChange(e)} />
-            </form>
+            
             <div className="postImgPreview">
               {$imagePreview}
             </div>
@@ -147,8 +150,39 @@ export default class RichEditor extends Component {
           </div>
           
        </div>
+       </form>
+       </div>
     );
   }
+
+  
+  _addUser = (event) => {
+    event.preventDefault();
+    let post = {
+      title: this.refs.title.value,
+      description: this.refs.description.value,
+      content:editorState
+      
+  }
+
+  fetch('http://localhost:5000/posts/add', {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(post)
+  })
+  .then(res => {
+    if(res.ok) return res.json
+  })
+  .then(res => {
+    console.log(`Post added successfully: ${res}`)
+              this.setState({ redirectToHome: true });
+  })
+  .catch(err => {
+    console.log(err);
+  })
+}
 }
 // Custom overrides for "code" style.
 const styleMap = {

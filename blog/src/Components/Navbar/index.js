@@ -36,7 +36,7 @@ class Navbar extends Component {
                             </div>
                             <div className="nav navbar-nav navbar-right">
                                 <div>
-                                <Link exact to="/user/jv4">{"Profile"}</Link>&nbsp;|&nbsp;
+                                <Link exact to="/users/jv4">{"Profile"}</Link>&nbsp;|&nbsp;
                                 <Link exact to="/AddPost">{"Add"}</Link>&nbsp;|&nbsp;
                                 <Link exact to="/home">{"Log Out"}</Link>
                                 </div>

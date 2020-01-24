@@ -35,7 +35,8 @@ componentDidMount(){
   render() {
     let postData, link;
      postData = this.state.postDataVal[0];
-     link = '/users/'+postData.userId;
+    // link = '/users/'+postData.userId;
+    link='';
     this.state.editorState = EditorState.createWithContent(
       convertFromRaw(JSON.parse(postData.content))
     );
@@ -44,7 +45,7 @@ componentDidMount(){
           <div className="title">
             <Link className="linkUsername" exact to={link}>
               <div className="postcard">
-                <img className="userimg" src={postData.imgUrl} width="30px" height="30px"/>
+                <img className="userimg" src={postData.imgUrl} width="20px" height="20px"/>
                 <div className="username">{postData.userId}</div>
               </div>
             </Link>

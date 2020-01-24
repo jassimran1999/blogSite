@@ -1,8 +1,8 @@
 
 
 .bg {
-    /* background-color: black; */
-    background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg");
+    background-color: #101820FF;
+    /* background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg"); */
     position:fixed;
     top: 0;
     right: 0;

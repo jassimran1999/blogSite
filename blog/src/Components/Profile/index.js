@@ -62,10 +62,10 @@ class Profile extends React.Component{
                 <div className="userid">{this.state.userData.username}</div>
                 <div className="follow">
                   <div className="following">
-                    <h4>Following</h4>{this.state.userData.following1}
-                  </div>
+                    <h4>Following</h4>{this.state.userData.following}
+                  </div>&nbsp;
                   <div className="followers">
-                    <h4>Followers</h4>{this.state.userData.follow1} 
+                    <h4>Followers</h4>{this.state.userData.followers} 
                   </div>
                 </div>
                 <button className="btn btn-sm btn-primary btn-block" onClick={()=>this.followerIncrease()} type="button">Follow</button>
