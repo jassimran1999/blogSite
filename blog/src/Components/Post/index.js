@@ -19,7 +19,7 @@ class Post extends React.Component{
     }
   }
   sendPostId = ()=>{
-    fetch('http://localhost:5000/postHeader?id='+ this.props.match.params.postId).then(response => {
+    fetch('http://localhost:5000/posts?id='+ this.props.match.params.postId).then(response => {
 		  return response.json();
 		}).then(res => {
 		  this.setState({
@@ -34,7 +34,7 @@ componentDidMount(){
 
   render() {
     let postData = this.state.postDataVal[0]
-    const link = '/user/'+postData.userId;
+    const link = '/users/'+postData.userId;
     this.state.editorState = EditorState.createWithContent(
       convertFromRaw(JSON.parse(postData.content))
     );
@@ -58,7 +58,7 @@ componentDidMount(){
           </div>
           <div className="action">
             <div className="like">
-              <button><p className="likeNumber"><u>LIKE</u> {postData.likes}</p></button>
+              <button><u>LIKE</u> {postData.likes}</button>
             </div>
             <div className="share">
               <button><u>SHARE</u></button>

@@ -35,10 +35,9 @@ class Profile extends React.Component{
     fetch('http://localhost:5000/users/?username='+ this.props.match.params.userId).then(response => {
 		  return response.json();
 		}).then(res => {
-      console.log("dsfsdf"+res)
 		  this.setState({
-      userData: res,
-      userPosts: res.postArr,
+      userData: res[0],
+      userPosts: res[0].postArr,
       })
 		});
   }

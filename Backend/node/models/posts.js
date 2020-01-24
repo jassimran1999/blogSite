@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
     description:String,
 })
 
-const PostsModel = mongoose.model("Posts", postSchema);
+const PostsModel = mongoose.model("Post", postSchema);
 
 PostsModel.findPosts = function (req, callBack) {
     let id = req.query.id;

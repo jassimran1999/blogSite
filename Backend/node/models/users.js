@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const usersSchema=new mongoose.Schema({
+const users=new mongoose.Schema({
     
     username: { type: String, required: true, unique: true },
     password: {type: String, required:true},
@@ -30,7 +30,7 @@ const usersSchema=new mongoose.Schema({
     }],
 });
 
-const UsersModel = mongoose.model("Users", usersSchema, "userss");
+const UsersModel = mongoose.model("User", users);
 
 UsersModel.findUsers=function (req,callBack) {
     console.log(req)

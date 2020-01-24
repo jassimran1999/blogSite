@@ -12,8 +12,8 @@ import './HomePost.css';
 class HomePost extends React.Component{
     
     render() {
-      const link1 = '/post/'+this.props.id;
-      const link2 = '/user/'+this.props.username;
+      const link1 = '/posts/'+this.props.id;
+      const link2 = '/users/'+this.props.username;
       return (      
         <div className="postOuter">  
           <div className="homePost" >

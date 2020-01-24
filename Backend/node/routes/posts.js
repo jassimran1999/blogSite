@@ -3,10 +3,12 @@ const router = express.Router();
 const PostsModel = require('./../models/posts');
 
 router.get('', (req, res) => {
+    console.log(req);
     PostsModel.findPosts(req.query, (error, response) => {
+        
         if (error) console.log("Error is: ", error);
         if (response) {
-            // console.log("Success response is: ", response);
+             console.log("Success response is: ", response);
             res.send(response);
         }
     });
