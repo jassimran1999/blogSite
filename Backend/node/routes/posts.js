@@ -8,6 +8,17 @@ router.get('', (req, res) => {
         
         if (error) console.log("Error is: ", error);
         if (response) {
+             //console.log("Success response is: ", response);
+            res.send(response);
+        }
+    });
+});
+
+router.get('/profile', (req, res) => {
+    console.log(res.query)
+    PostsModel.findPosts(req.query, (error, response) => {
+        if (error) console.log("Error is: ", error);
+        if (response) {
              console.log("Success response is: ", response);
             res.send(response);
         }
@@ -15,10 +26,11 @@ router.get('', (req, res) => {
 });
 
 router.post('/addPost', (req, res) => {
+    console.log("hjhgjhg")
     PostsModel.addPost(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
-            // console.log("Success response is: ", response);
+             console.log("Success response is: ", response);
             res.send(response);
         }
     });

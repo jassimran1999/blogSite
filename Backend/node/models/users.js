@@ -33,7 +33,7 @@ const users=new mongoose.Schema({
 const UsersModel = mongoose.model("User", users);
 
 UsersModel.findUsers=function (req,callBack) {
-    console.log(req)
+    //console.log(req)
     UsersModel.find(req,callBack);
 }
 

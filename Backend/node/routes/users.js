@@ -7,7 +7,19 @@ router.get('', (req, res) => {
     UsersModel.findUsers(req.query, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
-            console.log(response)
+            //console.log(response)
+            res.send(response);
+        }
+    });
+});
+
+
+router.get('/image', (req, res) => {
+    console.log(req.query)
+    UsersModel.findUsers(req.query, (error, response) => {
+        if (error) console.log("Error is: ", error);
+        if (response) {
+            //console.log(response)
             res.send(response);
         }
     });
