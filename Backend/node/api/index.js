@@ -50,7 +50,7 @@ app.use('/users', users);
 // app.use('/posts', cookieValidator, posts);
 app.use('/posts', posts);
 
-//app.use('/home',homePost);
+app.use('/home',homePost);
 
 app.get("/homedata", function (req, res) {
     res.send("Blog");
