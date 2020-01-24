@@ -1,8 +1,7 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/blogDb')
+require('../dbConnection');
 
-var User = require('../Schemas/userData');
-var Post = require('../Schemas/postData')
+var User = require('../models/users');
+var Post = require('../models/posts')
 
 var init = new Post(
     {
@@ -27,6 +26,9 @@ var init = new Post(
 //         console.log("POST\n")}
 // )
 
-User.find({username:'jv4'},function(res,require){
-  console.log(require)
-})
+init.save()
+
+
+// User.find({username:'jv4'},function(res,require){
+//   console.log(require)
+// })
