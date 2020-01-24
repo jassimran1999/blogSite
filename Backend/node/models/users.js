@@ -15,10 +15,10 @@ const users=new mongoose.Schema({
     postArr: [{
         postId:String,
     }],
-    followed:[{
+    followedBy:[{
         userId:String,
         }],
-    following:[{
+    followingIds:[{
         userId:String,
     }],
     postsLiked:[{

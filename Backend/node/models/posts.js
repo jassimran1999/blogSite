@@ -16,12 +16,8 @@ const postSchema = new mongoose.Schema({
 const PostsModel = mongoose.model("Post", postSchema);
 
 PostsModel.findPosts = function (req, callBack) {
-    let id = req.query.id;
-    let query = {};
-    if (id) {
-        query = { _id: id }
-    }
-    PostsModel.find(query, callBack);
+    
+    PostsModel.find(req, callBack);
 }
 
 PostsModel.addPost = function (req, callBack) {
