@@ -156,24 +156,23 @@ export default class RichEditor extends Component {
   }
 
   
-  _addUser = (event) => {
+  _addPost = (event) => {
     event.preventDefault();
+    let item = convertToRaw(this.state.editorState.getCurrentContent());
+        item = JSON.stringify(item);
     let post = {
       title: this.refs.title.value,
       description: this.refs.description.value,
-      content:editorState
-      
+      content: item
   }
-
-  fetch('http://localhost:5000/posts/add', {
+  console.log(post)
+  fetch('http://localhost:5000/posts/addPost', {
     method:'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body:JSON.stringify(post)
-  })
-  .then(res => {
-    if(res.ok) return res.json
+    
   })
   .then(res => {
     console.log(`Post added successfully: ${res}`)

@@ -22,11 +22,20 @@ class Post extends React.Component{
     fetch('http://localhost:5000/posts?postId='+ this.props.match.params.postId).then(response => {
 		  return response.json();
 		}).then(res => {
+      fetch('http://localhost:5000/users/image?username='+ res[0].userId).then(response => {
+		  return response.json();
+		}).then(reso => {
+     
 		  this.setState({
+      userImg:reso[0].userPhoto,
+      })});
+		  this.setState({
+
       postDataVal: res,
       })
 		});
   }
+
 
 componentDidMount(){
   this.sendPostId();
@@ -34,6 +43,7 @@ componentDidMount(){
 
   render() {
     let postData, link;
+    console.log(this.state.postDataVal[0])
      postData = this.state.postDataVal[0];
     // link = '/users/'+postData.userId;
     link='';
@@ -45,7 +55,7 @@ componentDidMount(){
           <div className="title">
             <Link className="linkUsername" exact to={link}>
               <div className="postcard">
-                <img className="userimg" src={postData.imgUrl} width="20px" height="20px"/>
+                <img className="userimg" src={this.state.userImg} width="20px" height="20px"/>
                 <div className="username">{postData.userId}</div>
               </div>
             </Link>

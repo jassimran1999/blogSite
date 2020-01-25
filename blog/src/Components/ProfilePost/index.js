@@ -10,7 +10,7 @@ import './ProfilePost.css';
 
 class ProfilePost extends React.Component{
   render() {
-    const link = '/'+this.props.id;
+    const link = '/posts/'+this.props.postId;
     return (
       <div>
         <div className="prof-post">

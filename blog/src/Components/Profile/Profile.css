@@ -26,8 +26,10 @@
 .usercard{
     display:flex;
     flex-direction: column;
-    padding-left: 10%;
+    padding-left: 8%;
     justify-content: space-around;
+    width: 40vh;
+    max-width: 500px;
 }
 .descBox{
     height: 50%;

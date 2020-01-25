@@ -28,7 +28,7 @@ class Home extends React.Component{
     
       homePostData = ()=>{
         //let id = "localhost:5000/queryParams?id:"+this.props.match.params.userId
-        fetch('http://localhost:5000/homedata').then(response => {
+        fetch('http://localhost:5000/home/homedata').then(response => {
               return response.json();
             }).then(res => {
                 console.log('fsdsd',res)

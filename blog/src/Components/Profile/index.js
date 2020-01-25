@@ -26,6 +26,7 @@ class Profile extends React.Component{
 
   componentDidMount(){
     this.sendUsername();
+    this.getPosts();
   }
 
 
@@ -37,7 +38,16 @@ class Profile extends React.Component{
 		}).then(res => {
 		  this.setState({
       userData: res[0],
-      userPosts: res[0].postArr,
+      })
+		});
+  }
+
+  getPosts = ()=>{
+    fetch('http://localhost:5000/posts/profile/?userId='+ this.props.match.params.userId).then(response => {
+		  return response.json();
+		}).then(res => {
+		  this.setState({
+      userPosts: res,
       })
 		});
   }
@@ -49,9 +59,7 @@ class Profile extends React.Component{
     console.log(this.state.count)
   }
   render() {
-    console.log(this.state.userData);
-    let userValues = this.state.userData;
-
+    
       return (
       
         <div className="Profile">
@@ -63,7 +71,7 @@ class Profile extends React.Component{
                 <div className="follow">
                   <div className="following">
                     <h4>Following</h4>{this.state.userData.following}
-                  </div>&nbsp;
+                  </div>
                   <div className="followers">
                     <h4>Followers</h4>{this.state.userData.followers} 
                   </div>
