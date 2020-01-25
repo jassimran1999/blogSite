@@ -26,8 +26,8 @@ router.get('/profile', (req, res) => {
 });
 
 router.post('/addPost', (req, res) => {
-    console.log("hjhgjhg")
-    PostsModel.addPost(req.query, (error, response) => {
+    console.log(req.body)
+    PostsModel.addPost(req, (error, response) => {
         if (error) console.log("Error is: ", error);
         if (response) {
              console.log("Success response is: ", response);
