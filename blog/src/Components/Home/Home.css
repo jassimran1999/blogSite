@@ -38,7 +38,7 @@
 
 marquee {
     letter-spacing: 3px;
-    background-color:rgba(0,0,0,0.9);
-    height: 150px;
+    background-color: #4F4F55;
+    height: 60px;
     color: white;;
 }

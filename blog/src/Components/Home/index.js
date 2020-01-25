@@ -45,7 +45,7 @@ class Home extends React.Component{
                 
 
                 <div className="HomeHeader">
-                    <marquee>What's on your mind? Wanna share something with the world? Here we have an amazing website just for you! Come BLOG WITH ME</marquee>
+                    <marquee><h4>What's on your mind? Wanna share something with the world? Here we have an amazing website just for you! Come BLOG WITH ME</h4></marquee>
                 </div>
                 <div className="initial">
                     <h1>BLOG W/ ME</h1>
