@@ -1,34 +1,37 @@
-import React, { Component } from 'react';
-import { Editor, EditorState, RichUtils, convertToRaw, draftToHtml } from 'draft-js';
-import './richText.css'
-import abc from '../../Constants/test'
+import React, { Component } from "react";
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  convertToRaw,
+  draftToHtml
+} from "draft-js";
+import "./richText.css";
+import abc from "../../Constants/test";
 
 export default class RichEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty()
-                };
+    this.state = { editorState: EditorState.createEmpty() };
     this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({editorState});
-    this.handleKeyCommand = (command) => this._handleKeyCommand(command);
-    this.onTab = (e) => this._onTab(e);
-    this.toggleBlockType = (type) => this._toggleBlockType(type);
-    this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+    this.onChange = editorState => this.setState({ editorState });
+    this.handleKeyCommand = command => this._handleKeyCommand(command);
+    this.onTab = e => this._onTab(e);
+    this.toggleBlockType = type => this._toggleBlockType(type);
+    this.toggleInlineStyle = style => this._toggleInlineStyle(style);
 
-    this.publishEvent=()=>{
-        const item = convertToRaw(this.state.editorState.getCurrentContent());
-        console.log(JSON.stringify(item));
-        document.getElementById("afterPublish").style.display = "flex";
-        document.getElementById("afterPublish").style.flexDirection = "column";
-
-
+    this.publishEvent = () => {
+      const item = convertToRaw(this.state.editorState.getCurrentContent());
+      console.log(JSON.stringify(item));
+      document.getElementById("afterPublish").style.display = "flex";
+      document.getElementById("afterPublish").style.flexDirection = "column";
     };
   }
 
   _handleSubmit(e) {
     e.preventDefault();
     // TODO: do something with -> this.state.file
-    console.log('handle uploading-', this.state.file);
+    console.log("handle uploading-", this.state.file);
   }
 
   _handleImageChange(e) {
@@ -42,14 +45,13 @@ export default class RichEditor extends Component {
         file: file,
         imagePreviewUrl: reader.result
       });
-    }
+    };
 
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
   }
 
-
   _handleKeyCommand(command) {
-    const {editorState} = this.state;
+    const { editorState } = this.state;
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
       this.onChange(newState);
@@ -68,125 +70,148 @@ export default class RichEditor extends Component {
   }
 
   _toggleInlineStyle(inlineStyle) {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle));
+    this.onChange(
+      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
+    );
   }
 
   render() {
-    let {imagePreviewUrl} = this.state;
-        let $imagePreview = null;
-        if (imagePreviewUrl) {
-          $imagePreview = (<img className="postImgUploaded" src={imagePreviewUrl} />);
-        } else {
-          $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
-        }
+    let { imagePreviewUrl } = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = <img className="postImgUploaded" src={imagePreviewUrl} />;
+    } else {
+      $imagePreview = (
+        <div className="previewText">Please select an Image for Preview</div>
+      );
+    }
     const { editorState } = this.state;
-    
+
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
-    let className = 'editor';
+    let className = "editor";
     var contentState = editorState.getCurrentContent();
     if (!contentState.hasText()) {
-      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        className += ' RichEditor-hidePlaceholder';
+      if (
+        contentState
+          .getBlockMap()
+          .first()
+          .getType() !== "unstyled"
+      ) {
+        className += " RichEditor-hidePlaceholder";
       }
     }
     return (
       <div>
         <form onSubmit={this._addPost}>
-      <div className="boundingBox">
-        
-        <div className="containerEditor">
-        <div className="options">
-            <div className="controls-cover">
-            <BlockStyleControls
-                editorState={editorState}
-                onToggle={this.toggleBlockType}
-            />
-            <InlineStyleControls
-                editorState={editorState}
-                onToggle={this.toggleInlineStyle}
-            />
+          <div className="boundingBox">
+            <div className="containerEditor">
+              <div className="options">
+                <div className="controls-cover">
+                  <BlockStyleControls
+                    editorState={editorState}
+                    onToggle={this.toggleBlockType}
+                  />
+                  <InlineStyleControls
+                    editorState={editorState}
+                    onToggle={this.toggleInlineStyle}
+                  />
+                </div>
+                <div className="publish" onClick={this.publishEvent}>
+                  Publish
+                </div>
+              </div>
+              <div className={className} onClick={this.focus}>
+                <Editor
+                  blockStyleFn={getBlockStyle}
+                  customStyleMap={styleMap}
+                  editorState={editorState}
+                  handleKeyCommand={this.handleKeyCommand}
+                  onChange={this.onChange}
+                  onTab={this.onTab}
+                  placeholder="Tell a story..."
+                  ref="editor"
+                  spellCheck={true}
+                />
+              </div>
             </div>
-            <div className="publish" onClick={this.publishEvent}>Publish</div>
-          </div>
-          <div className={className} onClick={this.focus}>
-            <Editor
-              blockStyleFn={getBlockStyle}
-              customStyleMap={styleMap}
-              editorState={editorState}
-              handleKeyCommand={this.handleKeyCommand}
-              onChange={this.onChange}
-              onTab={this.onTab}
-              placeholder="Tell a story..."
-              ref="editor"
-              spellCheck={true}
-            />
-          </div>
-       </div>
-       <div id="afterPublish">
-          
-          <input type="text" className="form-control" ref="title" placeholder="Title" autofocus />
-          <br/>
-          <textarea className="form-control" ref="description" placeholder="Description" autofocus />
-          
-          <div className="postPreviewComponent">
-           <center>
-              <input className="postFileInput" 
-                type="file" 
-                onChange={(e)=>this._handleImageChange(e)} />
-            
-            <div className="postImgPreview">
-              {$imagePreview}
-            </div>
-            <br/>
-            <button className="postSubmitButton" 
-                type="submit" 
-                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
-                <br/><br/>
-                <button className="doneButton"type="submit">POST</button>
+            <div id="afterPublish">
+              <input
+                type="text"
+                className="form-control"
+                ref="title"
+                placeholder="Title"
+                autofocus
+              />
+              <br />
+              <textarea
+                className="form-control"
+                ref="description"
+                placeholder="Description"
+                autofocus
+              />
+
+              <div className="postPreviewComponent">
+                <center>
+                  <input
+                    className="postFileInput"
+                    type="file"
+                    onChange={e => this._handleImageChange(e)}
+                  />
+
+                  <div className="postImgPreview">{$imagePreview}</div>
+                  <br />
+                  <button
+                    className="postSubmitButton"
+                    type="submit"
+                    onClick={e => this._handleSubmit(e)}
+                  >
+                    Upload Image
+                  </button>
+                  <br />
+                  <br />
+                  <button className="doneButton" type="submit">
+                    POST
+                  </button>
                 </center>
+              </div>
+            </div>
           </div>
-          
-          </div>
-          
-       </div>
-       </form>
-       </div>
+        </form>
+      </div>
     );
   }
 
-  
-  _addPost = (event) => {
+  _addPost = event => {
     event.preventDefault();
     let item = convertToRaw(this.state.editorState.getCurrentContent());
-        item = JSON.stringify(item);
+    item = JSON.stringify(item);
     let post = {
       title: this.refs.title.value,
       description: this.refs.description.value,
       content: item
-  }
-  console.log(post)
-  fetch('http://localhost:5000/posts/addPost', {
-    method:'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body:JSON.stringify(post)
-    
-  })
-  .then(res => {
-    console.log(`Post added successfully: ${res}`)
-              this.setState({ redirectToHome: true });
-  })
-  .catch(err => {
-    console.log(err);
-  })
-}
+    };
+    console.log(post);
+    fetch("http://localhost:5000/posts/addPost", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
+    })
+      .then(res => {
+        console.log(`Post added successfully: ${res}`);
+        this.setState({ redirectToHome: true });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 }
 // Custom overrides for "code" style.
 const styleMap = {
   CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+    backgroundColor: "rgba(0, 0, 0, 0.05)",
     fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
     fontSize: 16,
     padding: 2
@@ -195,8 +220,8 @@ const styleMap = {
 
 function getBlockStyle(block) {
   switch (block.getType()) {
-    case 'blockquote':
-      return 'RichEditor-blockquote';
+    case "blockquote":
+      return "RichEditor-blockquote";
     default:
       return null;
   }
@@ -205,15 +230,15 @@ function getBlockStyle(block) {
 class StyleButton extends React.Component {
   constructor() {
     super();
-    this.onToggle = (e) => {
+    this.onToggle = e => {
       e.preventDefault();
       this.props.onToggle(this.props.style);
     };
   }
   render() {
-    let className = 'styleButton';
+    let className = "styleButton";
     if (this.props.active) {
-      className += ' activeButton';
+      className += " activeButton";
     }
     return (
       <div className={className} onMouseDown={this.onToggle}>
@@ -223,79 +248,89 @@ class StyleButton extends React.Component {
   }
 }
 const inlineStyles = [
-    {
-      label: 'B',
-      style: 'BOLD'
-    }, {
-      label: 'I',
-      style: 'ITALIC'
-    }, {
-      label: 'U',
-      style: 'UNDERLINE'
-    }, {
-      label: 'Mono',
-      style: 'CODE'
-    }
-  ];
+  {
+    label: "B",
+    style: "BOLD"
+  },
+  {
+    label: "I",
+    style: "ITALIC"
+  },
+  {
+    label: "U",
+    style: "UNDERLINE"
+  },
+  {
+    label: "Mono",
+    style: "CODE"
+  }
+];
 const BLOCK_TYPES = [
   {
-    label: 'H1',
-    style: 'header-one'
-  }, {
-    label: 'H2',
-    style: 'header-two'
-  }, {
-    label: 'H3',
-    style: 'header-three'
-  }, {
-    label: 'H4',
-    style: 'header-four'
-  }, {
-    label: 'H5',
-    style: 'header-five'
-  }, {
-    label: 'H6',
-    style: 'header-six'
-  }, {
-    label: 'Code',
-    style: 'code-block'
+    label: "H1",
+    style: "header-one"
+  },
+  {
+    label: "H2",
+    style: "header-two"
+  },
+  {
+    label: "H3",
+    style: "header-three"
+  },
+  {
+    label: "H4",
+    style: "header-four"
+  },
+  {
+    label: "H5",
+    style: "header-five"
+  },
+  {
+    label: "H6",
+    style: "header-six"
+  },
+  {
+    label: "Code",
+    style: "code-block"
   }
 ];
 
-const BlockStyleControls = (props) => {
-  const {editorState} = props;
+const BlockStyleControls = props => {
+  const { editorState } = props;
   const selection = editorState.getSelection();
-  const blockType = editorState.getCurrentContent().getBlockForKey(selection.getStartKey()).getType();
+  const blockType = editorState
+    .getCurrentContent()
+    .getBlockForKey(selection.getStartKey())
+    .getType();
   return (
     <div className="controls">
-      {BLOCK_TYPES.map(
-        (type) => <StyleButton
+      {BLOCK_TYPES.map(type => (
+        <StyleButton
           key={type.label}
           active={type.style === blockType}
           label={type.label}
           onToggle={props.onToggle}
           style={type.style}
         />
-      )}
+      ))}
     </div>
   );
 };
 
-
-
-const InlineStyleControls = (props) => {
+const InlineStyleControls = props => {
   var currentStyle = props.editorState.getCurrentInlineStyle();
   return (
     <div className="controls">
-      {inlineStyles.map(
-        type => <StyleButton
+      {inlineStyles.map(type => (
+        <StyleButton
           key={type.label}
           active={currentStyle.has(type.style)}
           label={type.label}
           onToggle={props.onToggle}
           style={type.style}
         />
-      )}
+      ))}
     </div>
   );
 };

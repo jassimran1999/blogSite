@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch
-} from 'react-router-dom';
-import './ProfilePost.css';
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch
+} from "react-router-dom";
+import "./ProfilePost.css";
 
-class ProfilePost extends React.Component{
+class ProfilePost extends React.Component {
   render() {
-    const link = '/posts/'+this.props.postId;
+    const link = "/posts/" + this.props.postId;
     return (
       <div>
         <div className="prof-post">
@@ -25,10 +25,10 @@ class ProfilePost extends React.Component{
           </div>
         </div>
         <div className="post-spacing">
-            <div className="borderHr"></div>
+          <div className="borderHr"></div>
         </div>
       </div>
-    )
+    );
   }
 }
 export default ProfilePost;
