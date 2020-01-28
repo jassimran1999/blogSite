@@ -96,7 +96,7 @@ class Navbar extends Component {
                   </Link>
                   &nbsp;|&nbsp;
                   <Link exact to="/Signup">
-                    {"Signup"}
+                    {"Sign Up"}
                   </Link>
                 </div>
               </div>
