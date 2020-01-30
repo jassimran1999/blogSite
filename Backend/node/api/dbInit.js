@@ -7,7 +7,7 @@ const init = new User(
   {
     username: 'jv4',
     password: 'admin',
-    name: 'Jassimran',
+    name: 'JV',
     description: 'Hi I am J.V ',
     email: 'jvirdi4@gmail.com',
     phoneNumber: '1234567890',
