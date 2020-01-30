@@ -29,7 +29,7 @@ class Navbar extends Component {
           zIndex: "1",
           borderBottomStyle: "solid",
           backgroundColor: "#101820FF",
-          position: "fixed"
+          position: "fixed",
         }}
       >
         <div className="col">

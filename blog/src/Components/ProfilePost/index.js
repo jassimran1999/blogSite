@@ -20,7 +20,7 @@ class ProfilePost extends React.Component {
           <div className="post-meta">
             <Link className="linkProfile" exact to={link}>
               <div className="postProfileTitle">{this.props.title}</div>
-              <div className="postDesc">{this.props.desc}</div>
+              <div className="postDesc">{this.props.description}</div>
             </Link>
           </div>
         </div>
