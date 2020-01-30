@@ -1,4 +1,4 @@
-export default [{
+export default {request:{
     id:" ",
     title : " ",
     createdAt : " ",
@@ -7,5 +7,5 @@ export default [{
     imgUrl:" ",
     thumbnail:" ",
     views:" ",
-    userId:" ",
-}];
+    userId:{ },
+}};

@@ -53,9 +53,7 @@ export default class extends Component {
           </Route>
           <Route path="/users/:userId">
             <div>
-              {userData.map(item => {
-                return <Profile {...item} />;
-              })}
+              <Profile/>;
             </div>
           </Route>
         </switch>

@@ -1,59 +1,81 @@
 const express = require('express');
+
 const router = express.Router();
 const PostsModel = require('./../models/posts');
 
-router.get('', (req, res) => {
-    console.log(req.query);
-    PostsModel.findPosts(req.query, (error, response) => {
-        
-        if (error) console.log("Error is: ", error);
-        if (response) {
-             //console.log("Success response is: ", response);
-            res.send(response);
-        }
-    });
+
+router.get('/content/:postId', (req, res) => {
+  PostsModel.findPosts(req.params,
+
+    (response) => {
+      res.status(200).json({
+        serverStat: '0',
+        request: response[0],
+      });
+    },
+    (error) => {
+      console.log(error);
+      res;
+      status(500).json({
+        serverStat: '2',
+      });
+    },
+    ' postId , title , content , likes , views ',
+    'userId',
+    'username userPhoto');
 });
 
-router.get('/profile', (req, res) => {
-    console.log(res.query)
-    PostsModel.findPosts(req.query, (error, response) => {
-        if (error) console.log("Error is: ", error);
-        if (response) {
-             console.log("Success response is: ", response);
-            res.send(response);
-        }
-    });
+router.get('/id/:postId', (req, res) => {
+  PostsModel.findPosts(
+    req.params,
+    (response) => {
+      res.status(200).json({
+        serverStat: '0',
+        request: response,
+      });
+    },
+    (error) => {
+      console.log(error);
+      res.status(500).json({
+        serverStat: '2',
+      });
+    },
+    ' _id ',
+  );
 });
 
-router.post('/addPost', (req, res) => {
-    console.log(req.body)
-    PostsModel.addPost(req, (error, response) => {
-        if (error) console.log("Error is: ", error);
-        if (response) {
-             console.log("Success response is: ", response);
-            res.send(response);
-        }
-    });
+
+router.post('/add', (req, res) => {
+  console.log(req.body);
+  PostsModel.addPost(req, 
+    (response) => {
+      console.log('Success response is: ', response);
+      res.send(response);
+    },
+    (error) => {
+      
+    }
+  );
 });
 
 router.put('/updatePost', (req, res) => {
-    PostsModel.updatePost(req.query, (error, response) => {
-        if (error) console.log("Error is: ", error);
-        if (response) {
-            // console.log("Success response is: ", response);
-            res.send(response);
-        }
-    });
+  PostsModel.updatePost(req.query, (error, response) => {
+    if (error) console.log('Error is: ', error);
+    if (response) {
+      // console.log("Success response is: ", response);
+      res.send(response);
+    }
+  });
 });
 
 router.delete('/deletePost', (req, res) => {
-    PostsModel.deletePost(req.query, (error, response) => {
-        if (error) console.log("Error is: ", error);
-        if (response) {
-            // console.log("Success response is: ", response);
-            res.send(response);
-        }
-    });
+  PostsModel.deletePost(req.query, (error, response) => {
+    if (error) console.log('Error is: ', error);
+    if (response) {
+      // console.log("Success response is: ", response);
+      res.send(response);
+    }
+  });
 });
 
 module.exports = router;

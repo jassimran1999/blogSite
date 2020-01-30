@@ -8,15 +8,24 @@ const postSchema = new mongoose.Schema({
     likes: Number,
     thumbnail:String,
     views:Number,
-    userId:String,
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
     description:String,
 })
 
-const PostsModel = mongoose.model("Post", postSchema);
+const PostsModel = mongoose.model('Post', postSchema);
 
-PostsModel.findPosts = function (req, callBack) {
+PostsModel.findPosts = function (req,callBack,error,selector,populate,populateSelectors) {
     
-    PostsModel.find(req, callBack);
+    PostsModel
+    .find(req)
+    .select(selector)
+    .populate(populate,populateSelectors)
+    .exec()
+    .then(callBack)
+    .catch(error)
 }
 
 PostsModel.addPost = function (req, callBack) {

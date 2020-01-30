@@ -1,10 +1,10 @@
 require('../dbConnection');
 
-var User = require('../models/users');
-var Post = require('../models/posts')
+const User = require('../models/users');
+const Post = require('../models/posts');
 
-var init = new User(
-    {
+const init = new User(
+  {
     username: 'jv4',
     password: 'admin',
     name: 'Jassimran',
@@ -16,16 +16,16 @@ var init = new User(
     followers: '10',
     following: '1',
     postArr: [{
-        postId:'jv41',
+      postId: 'jv41',
     }],
-    }
+  },
 );
 
 
 // Post.find(
 //     {userId:'jv4'},
 //     function(err, doc) {
-//         if (err) throw err;          
+//         if (err) throw err;
 //         console.log(doc)
 //         console.log("POST\n")}
 // )
@@ -33,6 +33,6 @@ var init = new User(
 // init.save()
 
 
-User.find({username:'jv4'},function(res,require){
-  console.log(require)
-})
+User.find({ username: 'jv4' }, (res, require) => {
+  console.log(require);
+});

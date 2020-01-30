@@ -17,38 +17,28 @@ class Post extends React.Component {
       postDataVal: abc
     };
   }
-  sendPostId = () => {
-    fetch(
-      "http://localhost:5000/posts?postId=" + this.props.match.params.postId
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(res => {
-        fetch("http://localhost:5000/users/image?username=" + res[0].userId)
-          .then(response => {
-            return response.json();
-          })
-          .then(reso => {
-            this.setState({
-              userImg: reso[0].userPhoto
-            });
-          });
-        this.setState({
-          postDataVal: res
-        });
-      });
-  };
-
   componentDidMount() {
     this.sendPostId();
   }
 
+  sendPostId = () => {
+    fetch(
+      "http://localhost:5000/posts/content/" + this.props.match.params.postId
+    )
+      .then(response => {
+        return response.json();
+      }).then(res => {
+        this.setState({
+        postDataVal: res
+        })
+      })
+  }
+
+  
+
   render() {
     let postData, link;
-    console.log(this.state.postDataVal[0]);
-    postData = this.state.postDataVal[0];
-    // link = '/users/'+postData.userId;
+    postData = this.state.postDataVal.request;
     link = "";
     this.state.editorState = EditorState.createWithContent(
       convertFromRaw(JSON.parse(postData.content))
@@ -60,11 +50,11 @@ class Post extends React.Component {
             <div className="postcard">
               <img
                 className="userimg"
-                src={this.state.userImg}
+                src={postData.userId.userPhoto}
                 width="20px"
                 height="20px"
               />
-              <div className="username">{postData.userId}</div>
+              <div className="username">{postData.userId.username}</div>
             </div>
           </Link>
           <div className="postTitle">{postData.title}</div>

@@ -18,54 +18,28 @@ class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
-      userData: data,
+      userData: {},
       userPosts: [],
-      follow1: 1
     };
   }
 
-  componentDidMount() {
-    this.sendUsername();
-    this.getPosts();
+  componentWillMount() {
+     this.sendUsername();
   }
 
   sendUsername = () => {
-    //let id = "localhost:5000/queryParams?id:"+this.props.match.params.userId
-    console.log(this.props.match.params.userId);
-    fetch(
-      "http://localhost:5000/users/?username=" + this.props.match.params.userId
-    )
+      fetch("http://localhost:5000/users/profile/" + this.props.match.params.userId)
       .then(response => {
         return response.json();
       })
       .then(res => {
         this.setState({
-          userData: res[0]
+          userData: res.request[0],
+          userPosts:res.request[0].postArr
         });
       });
   };
 
-  getPosts = () => {
-    fetch(
-      "http://localhost:5000/posts/profile/?userId=" +
-        this.props.match.params.userId
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(res => {
-        this.setState({
-          userPosts: res
-        });
-      });
-  };
-
-  followerIncrease() {
-    this.setState(prevState => ({
-      follow1: prevState.follow1 + 1
-    }));
-    console.log(this.state.count);
-  }
   render() {
     return (
       <div className="Profile">
