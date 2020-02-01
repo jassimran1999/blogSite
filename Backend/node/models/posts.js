@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const UsersModel = require('../models/users')
 const postSchema = new mongoose.Schema({
     postId:String,
     title : String,
@@ -28,10 +28,56 @@ PostsModel.findPosts = function (req,callBack,error,selector,populate,populateSe
     .catch(error)
 }
 
-PostsModel.addPost = function (req, callBack) {
-    let post = req.body;
-    PostsModel.create(post, callBack);
-}
+PostsModel.addPost = function (req,res) {
+                    console.log(req.userData.username)
+                    UsersModel.findUsers(
+                        {username:req.userData.username},
+                        (response) => {
+                            let count = response.length+1;
+                            const post = new PostsModel({
+                                _id: new mongoose.Types.ObjectId(),
+                                postId:req.userData.username + count,
+                                title : req.body.title,
+                                createdAt : Date.now(),
+                                content: req.body.content,
+                                likes: 0,
+                                thumbnail:req.file.path,
+                                views:0,
+                                userId:req.userData['userId'],
+                                description:req.body.description,
+                              });
+                
+                              post
+                              .save()
+                              .then(result => {
+                                  UsersModel.findOneAndUpdate(
+                                    { username: req.userData['username'] }, 
+                                    { $push: { postArr: result._id } },
+                                    ()=>{
+                                        res.status(201).json({
+                                        serverStat:0,
+                                        message: "Post created"
+                                      });
+                                    }
+                                );})
+                              .catch(err => {
+                                console.log(err);
+                                res.status(500).json({
+                                  serverStat:2,
+                                  error: err
+                                });
+                              });
+                          },
+                          (error) => {
+                            console.log(error);
+                            res.status(500).json({
+                              serverStat: '2',
+                            });
+                          },
+                          '  postArr ',
+                            'postArr',
+                    )
+                  }
 
 PostsModel.updatePost = function (req, callBack) {
     let query = { _id: req.body._id };

@@ -27,21 +27,21 @@ const users = new mongoose.Schema({
   followedBy: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
+    unique:true
   }],
   followingIds: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
+    unique:true
   }],
   postsLiked: [{
-    postId: String,
-  }],
-  currentlyReading: [{
-    postId: {
-      type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
       ref: 'Post',
-    },
-    percentRead: Number,
+      unique:true
   }],
+  currentlyReading: [{type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post',
+    unique:true}],
 });
 
 const UsersModel = mongoose.model('User', users);
@@ -159,7 +159,7 @@ UsersModel.loginUser = function (req,res) {
         if (result) {
           const token = jwt.sign(
             {
-              email: user[0].email,
+              username: user[0].username,
               userId: user[0]._id
             },
             tokenSecret,
@@ -190,9 +190,10 @@ UsersModel.loginUser = function (req,res) {
 };
 
 UsersModel.updateUsers = function (req, callBack) {
-  const query = { _id: req.body._id };
+  const query = { _id: req.body.id };
   const user = req.body;
-  UsersModel.updateOne(query, user, callBack);
+  UsersModel.updateOne(query, {$set: {username:req.body.username}}, // Update
+  {upsert: true}, callBack);
 };
 
 module.exports = UsersModel;
