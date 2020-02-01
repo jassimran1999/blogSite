@@ -6,6 +6,7 @@
     top:15%;
     transform: translate(-50%,0);
     animation: fadein 500ms ease-in;
+    font-family: 'Rubik', sans-serif;
 }
 
 @keyframes fadein {
@@ -19,8 +20,7 @@
     height:50%;
     max-height:200px; 
     padding-left:15% ;
-    color: white;
-    font-family:'Consolas';
+    color: #101820FF;
 
 }
 .usercard{

@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
 
 .bg {
-    background-color: #101820FF;
+    background-color: #fbeec1;
     /* background: url("https://www.webnode.com/blog/wp-content/uploads/2018/09/blog.jpg"); */
     position:fixed;
     top: 0;
@@ -14,6 +15,7 @@
     background-size:cover;
     background-attachment: fixed;
     filter: blur(4px) grayscale(40%) ;
+    
 }
 
 body::-webkit-scrollbar {
