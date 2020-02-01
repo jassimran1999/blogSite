@@ -2,6 +2,34 @@ const express = require('express');
 const isAuth = require('../authCheck/authCheck')
 const router = express.Router();
 const UsersModel = require('./../models/users');
+const path = require('path')
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, path.join(__dirname, '../images/'));
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter
+});
+
+
+
+
+
 
 
 router.get('/profile/:username', (req, res) => {
@@ -21,14 +49,15 @@ router.get('/profile/:username', (req, res) => {
         serverStat: '2',
       });
     },
-    ' username name description userPhoto followers following postArr ',
+    ' username name description userPhoto followers following postArr email',
     'postArr',
     'title likes thumbnail views description',
   );
 });
 
 
-router.post("/add", (req, res, next) => {
+router.post("/add",upload.single('userPhoto'), (req, res, next) => {
+  console.log(req.file.path);
   UsersModel.addUser(req,res);
 });
 

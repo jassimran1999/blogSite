@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 
 const tokenSecret = "blogSecret";
@@ -65,7 +65,7 @@ UsersModel.addUser = function (req,res) {
       user => {
         if (user.length >= 1) {
           return res.status(409).json({
-            serverStat:1,
+            serverStat:5,
             message: "Mail exists"
           });
         } 
@@ -99,7 +99,7 @@ UsersModel.addUser = function (req,res) {
                       description: req.body.description,
                       phoneNumber: req.body.phoneNumber,
                       createdAt: Date.now(),
-                      userPhoto: req.body.userPhoto,
+                      userPhoto: req.file.path,
                       followers: 0,
                       following: 0,
                       postArr: [ ],
@@ -138,7 +138,7 @@ UsersModel.addUser = function (req,res) {
 UsersModel.loginUser = function (req,res) {
 
   UsersModel
-    .find({ email: req.body.email })
+    .find({ username: req.body.username })
     .exec()
     .then(user => {
 

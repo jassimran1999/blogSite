@@ -1,7 +1,30 @@
 const express = require('express');
 const isAuth = require('../authCheck/authCheck')
 const router = express.Router();
-const PostsModel = require('./../models/posts');
+const PostsModel = require('../models/posts');
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, '../images/');
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter
+});
+
 
 
 router.get('/content/:postId', (req, res) => {
@@ -45,7 +68,7 @@ router.get('/id/:postId',isAuth, (req, res) => {
 });
 
 
-router.post('/add',isAuth, (req, res) => {
+router.post('/add',upload.single('thumbnail'), isAuth, (req, res) => {
   console.log(req.body);
   PostsModel.addPost(req, 
     (response) => {

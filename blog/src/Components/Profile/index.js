@@ -45,7 +45,7 @@ class Profile extends React.Component {
       <div className="Profile">
         <div className="userBox">
           <div className="userInfo">
-            <img className="userimage" src={this.state.userData.userPhoto} />
+            <img className="userimage" src={"http://localhost:5000"+this.state.userData.userPhoto} />
             <div className="usercard">
               <div className="userid">{this.state.userData.username}</div>
               <div className="follow">
