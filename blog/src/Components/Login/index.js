@@ -20,8 +20,13 @@ class Login extends React.Component {
       flag:false,  
     };
     
-    
   }
+  handleClick1=function(){
+    this.setState({flag:true});
+}
+handleClick2=function(){
+    this.setState({flag:false});
+}
 
   render() {
     if (this.state.redirectToHome) {
@@ -36,7 +41,7 @@ class Login extends React.Component {
             <input type="password" placeholder="password"/>
             <input type="text" placeholder="email address"/>
             <button>create</button>
-            <p className="message" onClick={this.handleClick}>Already registered? <a href="#">Sign In</a></p>
+            <p className="message" onClick={this.handleClick1}>Already registered? <a href="">Sign In</a></p>
           </form>
           </div>
           </div>
@@ -47,7 +52,7 @@ class Login extends React.Component {
             <input type="text" placeholder="username"/>
             <input type="password" placeholder="password"/>
             <button>login</button>
-            <p className="message" onClick={this.handleClick}>Not registered? <a href="#">Create an account</a></p>
+            <p className="message" onClick={this.handleClick2}>Not registered? <a href="">Create an account</a></p>
           </form>
         </div>
       </div>  
