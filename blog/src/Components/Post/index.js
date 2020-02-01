@@ -23,7 +23,7 @@ class Post extends React.Component {
 
   sendPostId = () => {
     fetch(
-      "http://localhost:5000/posts/content/" + this.props.match.params.postId
+      "http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/posts/content/" + this.props.match.params.postId
     )
       .then(response => {
         return response.json();

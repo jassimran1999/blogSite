@@ -28,7 +28,7 @@ class Profile extends React.Component {
   }
 
   sendUsername = () => {
-      fetch("http://localhost:5000/users/profile/" + this.props.match.params.userId)
+      fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/profile/" + this.props.match.params.userId)
       .then(response => {
         return response.json();
       })
@@ -45,7 +45,7 @@ class Profile extends React.Component {
       <div className="Profile">
         <div className="userBox">
           <div className="userInfo">
-            <img className="userimage" src={"http://localhost:5000"+this.state.userData.userPhoto} />
+            <img className="userimage" src={"http://ec2-54-159-137-67.compute-1.amazonaws.com:5000"+this.state.userData.userPhoto} />
             <div className="usercard">
               <div className="userid">{this.state.userData.username}</div>
               <div className="follow">

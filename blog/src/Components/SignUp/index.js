@@ -177,7 +177,7 @@ class Signup extends Component {
       phoneNumber: this.refs.phoneNumber.value
     };
 
-    fetch("http://localhost:5000/users/add", {
+    fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

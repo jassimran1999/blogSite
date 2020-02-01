@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Signup from "../SignUp";
 import Signin from "../SignIn";
+import Login from "../Login";
 import Home from "../Home";
 import Post from "../Post";
 import Profile from "../Profile";
@@ -40,7 +41,9 @@ export default class extends Component {
           <Route path="/Signin">
             <Signin />
           </Route>
-
+          <Route path="/users/login">
+            <Login />
+          </Route>
           <Route path="/AddPost">
             <AddPost />
           </Route>
@@ -51,7 +54,7 @@ export default class extends Component {
               })}
             </div>
           </Route>
-          <Route path="/users/:userId">
+          <Route path="/users/profile/:userId">
             <div>
               <Profile/>;
             </div>

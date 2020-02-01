@@ -96,7 +96,7 @@ class Signin extends React.Component {
       password: this.refs.password.value
     };
 
-    fetch("http://localhost:5000/users/Signin", {
+    fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/Signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

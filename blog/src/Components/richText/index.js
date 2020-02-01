@@ -166,7 +166,7 @@ export default class RichEditor extends Component {
       content: item
   }
   console.log(post)
-  fetch('http://localhost:5000/posts/addPost', {
+  fetch('http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/posts/add', {
     method:'POST',
     headers: {
       'Content-Type': 'application/json'
