@@ -1,5 +1,5 @@
 const express = require('express');
-
+const isAuth = require('../authCheck/authCheck')
 const router = express.Router();
 const PostsModel = require('./../models/posts');
 
@@ -25,7 +25,7 @@ router.get('/content/:postId', (req, res) => {
     'username userPhoto');
 });
 
-router.get('/id/:postId', (req, res) => {
+router.get('/id/:postId',isAuth, (req, res) => {
   PostsModel.findPosts(
     req.params,
     (response) => {
@@ -45,7 +45,7 @@ router.get('/id/:postId', (req, res) => {
 });
 
 
-router.post('/add', (req, res) => {
+router.post('/add',isAuth, (req, res) => {
   console.log(req.body);
   PostsModel.addPost(req, 
     (response) => {
@@ -58,7 +58,7 @@ router.post('/add', (req, res) => {
   );
 });
 
-router.put('/updatePost', (req, res) => {
+router.put('/updatePost', isAuth, (req, res) => {
   PostsModel.updatePost(req.query, (error, response) => {
     if (error) console.log('Error is: ', error);
     if (response) {
@@ -68,7 +68,7 @@ router.put('/updatePost', (req, res) => {
   });
 });
 
-router.delete('/deletePost', (req, res) => {
+router.delete('/deletePost', isAuth, (req, res) => {
   PostsModel.deletePost(req.query, (error, response) => {
     if (error) console.log('Error is: ', error);
     if (response) {

@@ -1,7 +1,8 @@
 const express = require('express');
-
+const isAuth = require('../authCheck/authCheck')
 const router = express.Router();
 const UsersModel = require('./../models/users');
+
 
 router.get('/profile/:username', (req, res) => {
   UsersModel.findUsers(
@@ -27,48 +28,17 @@ router.get('/profile/:username', (req, res) => {
 });
 
 
-router.get('/image', (req, res) => {
-  UsersModel.findUsers(req.params, (error, response) => {
-    if (error) console.log('Error is: ', error);
-    if (response) {
-      res.status.send(response);
-    }
-  });
+router.post("/add", (req, res, next) => {
+  UsersModel.addUser(req,res);
 });
 
-router.post('/add', (req, res) => {
-  UsersModel.addUser(req, (error, response) => {
-    if (error) {
-      console.log('Error is: ', error);
-      res.send(error);
-    }
-    if (response) {
-      // req.session.username = response.username
-      console.log('Success response is: ', JSON.stringify(response));
-      res.send('User added successfully');
-    }
-  });
+
+router.post("/login",  (req, res, next) => {
+  UsersModel.loginUser(req,res);
 });
 
-router.post('/Signin', (req, res) => {
-  UsersModel.findUserForLogin(req.query, (error, response) => {
-    if (error) {
-      console.log('Error is: ', error);
-      res.send(error);
-    }
-    if (response) {
-      if (response.length > 1) {
-        req.session.username = response.username;
-        console.log('Success response is: ', JSON.stringify(response));
-        res.send('User authenticated successfully');
-      } else {
-        res.status(401).send('User not authenticated');
-      }
-    }
-  });
-});
 
-router.put('/update', (req, res) => {
+router.put('/update', isAuth,(req, res) => {
   UsersModel.updateUsers(req.query, (error, response) => {
     if (error) console.log('Error is: ', error);
     if (response) {
