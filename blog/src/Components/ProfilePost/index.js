@@ -15,7 +15,7 @@ class ProfilePost extends React.Component {
       <div>
         <div className="prof-post">
           <div className="post-thumbnail">
-            <img className="imageThumbnail" src={this.props.thumbnail} />
+            <img className="imageThumbnail" src={'http://ec2-54-159-137-67.compute-1.amazonaws.com:5000'+this.props.thumbnail} />
           </div>
           <div className="post-meta">
             <Link className="linkProfile" exact to={link}>
