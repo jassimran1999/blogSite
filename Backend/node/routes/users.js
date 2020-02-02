@@ -52,7 +52,7 @@ router.get('/profile/:username', (req, res) => {
     },
     ' username name description userPhoto followers following postArr email postsLiked ',
     'postArr',
-    'title likes thumbnail views description postId',
+    'title likes thumbnail views description _id',
   );
 });
 

@@ -11,7 +11,7 @@ import "./ProfilePost.css";
 class ProfilePost extends React.Component {
   render() {
     console.log(this.props)
-    const link = "/posts/" + this.props.postId;
+    const link = "/posts/" + this.props._id;
     return (
       <div>
         <div className="prof-post">

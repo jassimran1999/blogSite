@@ -28,7 +28,7 @@ const upload = multer({
 });
 
 
-router.get('/content/:postId', (req, res) => {
+router.get('/content/:_id', (req, res) => {
   PostsModel.findPosts(req.params,
 
     (response) => {
@@ -44,7 +44,7 @@ router.get('/content/:postId', (req, res) => {
         serverStat: '2',
       });
     },
-    ' postId , title , content , likes , views ',
+    ' postId , title , content , likes , views , _id ',
     'userId',
     'username userPhoto');
 });
