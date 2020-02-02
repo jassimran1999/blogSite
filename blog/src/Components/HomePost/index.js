@@ -24,7 +24,7 @@ class HomePost extends React.Component{
             </Link>
             <Link className="linkHomePost" exact to={link1}>
               <div className="postBody">
-                < img className="postImg" src={this.props.thumbnail}/>
+                < img className="postImg" src={'http://ec2-54-159-137-67.compute-1.amazonaws.com:5000'+this.props.thumbnail}/>
               </div>
               <div className="postBottom">
                 <div className="postTitleHome">{this.props.title}</div>
