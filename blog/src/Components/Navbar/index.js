@@ -59,7 +59,7 @@ class Navbar extends Component {
               </div>
               <div className="">
                 <Link className="navbar-brand" to="/home">
-                  BLOG with ME
+                  BLOG WITH ME
                 </Link>
               </div>
               <div className="nav navbar-nav navbar-right">
