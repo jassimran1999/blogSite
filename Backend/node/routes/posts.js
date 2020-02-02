@@ -28,8 +28,9 @@ const upload = multer({
 });
 
 
-router.get('/content/:_id', (req, res) => {
-  PostsModel.findPosts(req.params,
+router.get('/content/:mongoId', (req, res) => {
+  console.log(req.params)
+  PostsModel.findPosts({_id:req.params.mongoId},
 
     (response) => {
       res.status(200).json({

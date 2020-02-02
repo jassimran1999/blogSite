@@ -12,7 +12,7 @@ import './HomePost.css';
 class HomePost extends React.Component{
     
     render() {
-      const link1 = '/posts/'+this.props.postId;
+      const link1 = '/posts/'+this.props._id;
       const link2 = '/users/profile/'+this.props.userId['username'];
       return (      
         <div className="postOuter">  
