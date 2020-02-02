@@ -15,6 +15,7 @@ class Logout extends React.Component {
         super(props)
         localStorage.removeItem('isAuthenticated');
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         
     }
     updateLocation = ()=>

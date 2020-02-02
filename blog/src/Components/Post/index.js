@@ -50,7 +50,7 @@ class Post extends React.Component {
             <div className="postcard">
               <img
                 className="userimg"
-                src={postData.userId.userPhoto}
+                src={"http://ec2-54-159-137-67.compute-1.amazonaws.com:5000"+postData.userId.userPhoto}
                 width="20px"
                 height="20px"
               />
