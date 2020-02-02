@@ -146,7 +146,9 @@ export default class RichEditor extends Component {
            <center>
               <input className="postFileInput" 
                 type="file" 
-                onChange={(e)=>this._handleImageChange(e)} />
+                onChange={(e)=>this._handleImageChange(e)} 
+                ref = "thumbnail"
+                />
             
             <div className="postImgPreview">
               {$imagePreview}
@@ -173,21 +175,26 @@ export default class RichEditor extends Component {
     event.preventDefault();
     let item = convertToRaw(this.state.editorState.getCurrentContent());
         item = JSON.stringify(item);
-    let post = {
-      title: this.refs.title.value,
-      description: this.refs.description.value,
-      content: item,
-      userId: "5e354083f43ca18ac1df9e09",
-
-  }
-  console.log(post)
+        console.log(this.state.file)
+    
+      let title= this.refs.title.value;
+      let description= this.refs.description.value;
+      
+      let data = new FormData()
+   data.append('thumbnail', this.state.file)
+   data.append('title', title)
+   data.append('description', description)
+   data.append('content', item)
+   data.append('userId', '5e354083f43ca18ac1df9e09')
+  
   fetch('http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/posts/add', {
     method:'POST',
+    body:data,
     headers: {
-      'Content-Type': 'application/json',
       'Authorization' : 'Bearer ' + localStorage.getItem('token'),
     },
-    body:JSON.stringify(post)
+    
+   
     
   })
   .then(res => {
