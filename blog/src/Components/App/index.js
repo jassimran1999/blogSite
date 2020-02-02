@@ -10,7 +10,6 @@ import Post from "../Post";
 import Profile from "../Profile";
 import Navbar from "../Navbar";
 import AddPost from "../AddPost";
-import Notfound from "../Notfoundvalue";
 import postData from "../../Constants/postConstants";
 import userData from "../../Constants/userConstants";
 import {
@@ -26,11 +25,7 @@ export default class extends Component {
   
 
 
-
   render() {
-    const NoMatch = ({ location }) => (
-      window.location.replace('/NotFound')
-    )
     return (
       <div className="outer">
         <div className="bg" />
@@ -51,13 +46,8 @@ export default class extends Component {
           <Route path="/AddPost">
             <AddPost />
           </Route>
-<<<<<<< HEAD
-          <Route path="/NotFound">
-            <Notfound />
-=======
           <Route path="/users/Update">
             <UserUpdate />
->>>>>>> 70fba7fee2544ed825ba804a7bd0097886092218
           </Route>
           <Route path="/posts/:postId">
             <div>  b
@@ -66,7 +56,6 @@ export default class extends Component {
               })}
             </div>
           </Route>
-          
           <Route path="/Logout">
             <Logout/>
             </Route>
@@ -75,7 +64,7 @@ export default class extends Component {
               <Profile/>;
             </div>
           </Route>
-        </switch> 
+        </switch>
       </div>
     );
   }
