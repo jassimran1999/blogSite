@@ -9,6 +9,7 @@ import Post from "../Post";
 import Profile from "../Profile";
 import Navbar from "../Navbar";
 import AddPost from "../AddPost";
+import Notfound from "../Notfoundvalue";
 import postData from "../../Constants/postConstants";
 import userData from "../../Constants/userConstants";
 import {
@@ -24,7 +25,11 @@ export default class extends Component {
   
 
 
+
   render() {
+    const NoMatch = ({ location }) => (
+      window.location.replace('/NotFound')
+    )
     return (
       <div className="outer">
         <div className="bg" />
@@ -45,6 +50,9 @@ export default class extends Component {
           <Route path="/AddPost">
             <AddPost />
           </Route>
+          <Route path="/NotFound">
+            <Notfound />
+          </Route>
           <Route path="/posts/:postId">
             <div>  b
               {postData.map(item => {
@@ -52,6 +60,7 @@ export default class extends Component {
               })}
             </div>
           </Route>
+          
           <Route path="/Logout">
             <Logout/>
             </Route>
@@ -60,7 +69,7 @@ export default class extends Component {
               <Profile/>;
             </div>
           </Route>
-        </switch>
+        </switch> 
       </div>
     );
   }

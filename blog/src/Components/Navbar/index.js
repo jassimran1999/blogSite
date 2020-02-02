@@ -67,11 +67,11 @@ class Navbar extends Component {
                   <Link exact to={"/users/profile/"+ localStorage.getItem("user")}>
                     {"Profile"}
                   </Link>
-                  &nbsp;|&nbsp;
+                  &nbsp;&nbsp;
                   <Link exact to="/AddPost">
                     {"Add"}
                   </Link>
-                  &nbsp;|&nbsp;
+                  &nbsp;&nbsp;
                   <Link exact to="/Logout">
                     {"Log Out"}
                   </Link>

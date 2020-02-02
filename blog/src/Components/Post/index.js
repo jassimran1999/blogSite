@@ -28,6 +28,7 @@ class Post extends React.Component {
       .then(response => {
         return response.json();
       }).then(res => {
+        console.log("dcsdcs"+res)
         this.setState({
         postDataVal: res
         })

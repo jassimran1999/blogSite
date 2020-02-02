@@ -32,6 +32,15 @@ class Profile extends React.Component {
       .then(response => {
         return response.json();
       })
+      .then(
+        res => {
+         if(res.request.length===0)
+         {
+           window.location.replace('/NotFound');
+         }
+         return res;
+        }
+      )
       .then(res => {
         this.setState({
           userData: res.request[0],
