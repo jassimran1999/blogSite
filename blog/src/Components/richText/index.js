@@ -6,8 +6,10 @@ import abc from '../../Constants/test'
 export default class RichEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty()
+    this.state = { editorState: EditorState.createEmpty(),
+      publishFlag: true
                 };
+                
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
@@ -20,9 +22,9 @@ export default class RichEditor extends Component {
         console.log(JSON.stringify(item));
         document.getElementById("afterPublish").style.display = "flex";
         document.getElementById("afterPublish").style.flexDirection = "column";
-
-
     };
+
+    this.handleClick1 = this.handleClick1.bind(this);
   }
 
   _handleSubmit(e) {
@@ -71,6 +73,11 @@ export default class RichEditor extends Component {
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle));
   }
 
+  
+  handleClick1=()=>{
+    this.setState(state=>({publishFlag:!state.publishFlag}));
+}
+
   render() {
     let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
@@ -89,11 +96,13 @@ export default class RichEditor extends Component {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
         className += ' RichEditor-hidePlaceholder';
       }
-    }
+    } 
     return (
       <div>
-        <form onSubmit={this._addPost}>
-      <div className="boundingBox">
+        <div value={this.state.publishFlag}/>
+          {this.state.publishFlag &&  <div className="boundingBox">
+        
+      
         
         <div className="containerEditor">
         <div className="options">
@@ -107,7 +116,7 @@ export default class RichEditor extends Component {
                 onToggle={this.toggleInlineStyle}
             />
             </div>
-            <div className="publish" onClick={this.publishEvent}>Publish</div>
+            <div className="publish" onClick={this.handleClick1}>Publish</div>
           </div>
           <div className={className} onClick={this.focus}>
             <Editor
@@ -123,7 +132,11 @@ export default class RichEditor extends Component {
             />
           </div>
        </div>
+       </div>}
+       {
+         !this.state.publishFlag && 
        <div id="afterPublish">
+       <form onSubmit={this._addPost}>
           
           <input type="text" className="form-control" ref="title" placeholder="Title" autofocus />
           <br/>
@@ -146,11 +159,11 @@ export default class RichEditor extends Component {
                 <button className="doneButton"type="submit">POST</button>
                 </center>
           </div>
-          
+          </form>
           </div>
           
-       </div>
-       </form>
+       
+  }
        </div>
     );
   }
