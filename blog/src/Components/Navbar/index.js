@@ -25,17 +25,16 @@ class Navbar extends Component {
     window.location.reload(false);
   }
   getAuth = ()=>{
-    let isAuth = localStorage.getItem("isAuthenticated"); //wont leave for anywhere but will be true or false
-    this.setState = { isAuthenticated: isAuth === "true" }; //
+    let isAuth = localStorage.getItem("isAuthenticated");
+    let userVal = localStorage.getItem("user")
+    console.log(userVal) //wont leave for anywhere but will be true or false
+    this.setState = { isAuthenticated: isAuth === "true",user:userVal }; //
     console.log(this.state.isAuthenticated); //value logging
     
   }
 
   componentDidMount(){
-    
 		  this.getAuth();
-    
-    
   }
 
   render() {
@@ -65,7 +64,7 @@ class Navbar extends Component {
               </div>
               <div className="nav navbar-nav navbar-right">
                 <div>
-                  <Link exact to="/users/jv4">
+                  <Link exact to={"/users/profile/"+ localStorage.getItem("user")}>
                     {"Profile"}
                   </Link>
                   &nbsp;|&nbsp;

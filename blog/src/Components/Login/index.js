@@ -109,7 +109,8 @@ refreshPage = ()=> {
           localStorage.setItem('isAuthenticated',false);
         }
         localStorage.setItem('isAuthenticated',true);
-        localStorage.setItem('token',res.token)
+        localStorage.setItem('token',res.token);
+        localStorage.setItem('user',this.state.username);
         
         this.setState({ redirectToHome: true });
         
