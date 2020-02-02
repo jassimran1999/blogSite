@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use('/users', users);
 app.use('/posts', posts);
-
+app.use('/home', homePost)
 
 app.listen(port, () => { console.log(`Listening on Port ${port}`); });
 

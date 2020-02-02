@@ -6,12 +6,25 @@ const PostsModel = require('../models/posts');
 
 
 router.get('/homedata', (req, res) => {
-  PostsModel.findPosts({}, (error, response) => {
-    if (error) console.log('Error is: ', error);
-    if (response) {
-      res.send(response);
-    }
-  });
+    PostsModel.findPosts(
+      {},
+      (response) => {
+        res.status(200).json({
+          serverStat: '1',
+          request: response,
+        });
+      },
+      (error) => {
+        console.log(error);
+        res.status(500).json({
+          serverStat: '2',
+        });
+      },
+      ' _id title thumbnail description postId',
+      'userId',
+      'username userPhoto'
+    );
+
 });
 
 
