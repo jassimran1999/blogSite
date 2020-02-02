@@ -22,14 +22,14 @@
     padding-top: 20px;
 }
 
-.initial {
+/* .initial {
 
     text-align: center;
-    font-size: 50px;
+    font-size: 10px;
     transform: translate(0%,120%);
     z-index: 2;
    /* animation: fadeOut 2s ease-out;*/
-}
+/*} */
 
 /*@keyframes fadeOut {
     0% { opacity: 1;}

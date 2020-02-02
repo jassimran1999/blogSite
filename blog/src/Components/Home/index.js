@@ -55,9 +55,7 @@ class Home extends React.Component {
             </h4>
           </marquee>
         </div>
-        <div className="initial">
-          <h1>BLOG W/ ME</h1>
-        </div>
+       
         <div className="HomeBody">
           {this.state.HomePostData['request'].map(item => {
             return <HomePost {...item} />;
