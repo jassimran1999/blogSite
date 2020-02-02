@@ -135,12 +135,13 @@ export default class RichEditor extends Component {
        </div>}
        {
          !this.state.publishFlag && 
-       <div id="afterPublish">
-       <form onSubmit={this._addPost}>
+       <div id="afterPublish" className="login-page">
+         <div className="form">
+       <form onSubmit={this._addPost} className="register-form">
           
-          <input type="text" className="form-control" ref="title" placeholder="Title" autofocus />
+          <input type="text" ref="title" placeholder="Title" autofocus />
           <br/>
-          <textarea className="form-control" ref="description" placeholder="Description" autofocus />
+          <textarea ref="description" placeholder="Description" autofocus />
           
           <div className="postPreviewComponent">
            <center>
@@ -150,7 +151,7 @@ export default class RichEditor extends Component {
                 ref = "thumbnail"
                 />
             
-            <div className="postImgPreview">
+            <div className="postImgPreview"> 
               {$imagePreview}
             </div>
             <br/>
@@ -162,6 +163,7 @@ export default class RichEditor extends Component {
                 </center>
           </div>
           </form>
+          </div>
           </div>
           
        
