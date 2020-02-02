@@ -198,8 +198,9 @@ export default class RichEditor extends Component {
     
   })
   .then(res => {
+
     console.log(`Post added successfully: ${res}`)
-              this.setState({ redirectToHome: true });
+              window.location.replace('/home')
   })
   .catch(err => {
     console.log(err);

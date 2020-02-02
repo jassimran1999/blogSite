@@ -62,8 +62,8 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    max-height: 20vh;
-    overflow: hidden;
+    height: 20vh;
+    overflow: hidden; 
 }
 .postDescHome{
     text-decoration: none;
