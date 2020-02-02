@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "../SignUp";
 import Signin from "../SignIn";
 import Login from "../Login";
+import UserUpdate from "../UserUpdate";
 import Logout from "../Logout";
 import Home from "../Home";
 import Post from "../Post";
@@ -50,8 +51,13 @@ export default class extends Component {
           <Route path="/AddPost">
             <AddPost />
           </Route>
+<<<<<<< HEAD
           <Route path="/NotFound">
             <Notfound />
+=======
+          <Route path="/users/Update">
+            <UserUpdate />
+>>>>>>> 70fba7fee2544ed825ba804a7bd0097886092218
           </Route>
           <Route path="/posts/:postId">
             <div>  b
