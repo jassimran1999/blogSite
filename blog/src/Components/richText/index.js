@@ -156,7 +156,7 @@ export default class RichEditor extends Component {
                 type="submit" 
                 onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
                 <br/><br/>
-                <button className="doneButton"type="submit">POST</button>
+                <button className="doneButton" type="submit">POST</button>
                 </center>
           </div>
           </form>
@@ -176,13 +176,16 @@ export default class RichEditor extends Component {
     let post = {
       title: this.refs.title.value,
       description: this.refs.description.value,
-      content: item
+      content: item,
+      userId: "5e354083f43ca18ac1df9e09",
+
   }
   console.log(post)
   fetch('http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/posts/add', {
     method:'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem('token'),
     },
     body:JSON.stringify(post)
     

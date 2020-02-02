@@ -52,7 +52,7 @@ router.get('/profile/:username', (req, res) => {
     },
     ' username name description userPhoto followers following postArr email postsLiked ',
     'postArr',
-    'title likes thumbnail views description',
+    'title likes thumbnail views description postId',
   );
 });
 
@@ -171,7 +171,7 @@ router.post('/follow/:userMongoId',isAuth , (req,res)=> {
 
 
 router.post('/update', isAuth,(req, res) => {
-  console.log(req.body)
+  console.log(req)
   UsersModel.findOneAndUpdate(
     { username: req.userData['username'] }, 
     req.body,
