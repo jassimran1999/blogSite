@@ -25,7 +25,7 @@ class AddPost extends React.Component{
           <div className="addPostBg">
             <RichText/>
             </div>):
-        (<Redirect to="/Signin"/>)
+        (<Redirect to="/users/login"/>)
 
 
             return (
