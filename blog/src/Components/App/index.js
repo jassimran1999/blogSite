@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "../SignUp";
 import Signin from "../SignIn";
 import Login from "../Login";
+import UserUpdate from "../UserUpdate";
 import Logout from "../Logout";
 import Home from "../Home";
 import Post from "../Post";
@@ -44,6 +45,9 @@ export default class extends Component {
           </Route>
           <Route path="/AddPost">
             <AddPost />
+          </Route>
+          <Route path="/users/Update">
+            <UserUpdate />
           </Route>
           <Route path="/posts/:postId">
             <div>  b
