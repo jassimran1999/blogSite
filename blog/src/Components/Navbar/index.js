@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Signup from "./../SignUp";
+import Logout from "./../Logout";
 import Signin from "./../SignIn";
 import AddPost from "./../AddPost";
 import Home from "./../Home";
@@ -18,6 +18,24 @@ class Navbar extends Component {
     let isAuth = localStorage.getItem("isAuthenticated"); //wont leave for anywhere but will be true or false
     this.state = { isAuthenticated: isAuth === "true" }; //
     console.log(this.state.isAuthenticated); //value logging
+    
+  }
+  
+  refreshPage = ()=> {
+    window.location.reload(false);
+  }
+  getAuth = ()=>{
+    let isAuth = localStorage.getItem("isAuthenticated"); //wont leave for anywhere but will be true or false
+    this.setState = { isAuthenticated: isAuth === "true" }; //
+    console.log(this.state.isAuthenticated); //value logging
+    
+  }
+
+  componentDidMount(){
+    
+		  this.getAuth();
+    
+    
   }
 
   render() {
@@ -55,7 +73,7 @@ class Navbar extends Component {
                     {"Add"}
                   </Link>
                   &nbsp;|&nbsp;
-                  <Link exact to="/home">
+                  <Link exact to="/Logout">
                     {"Log Out"}
                   </Link>
                 </div>
@@ -91,12 +109,8 @@ class Navbar extends Component {
               <div className="nav navbar-nav navbar-right">
                 <div>
                   {/* with signup if false */}
-                  <Link exact to="/Signin">
+                  <Link exact to="/users/login">
                     {"Sign In"}
-                  </Link>
-                  &nbsp;|&nbsp;
-                  <Link exact to="/Signup">
-                    {"Sign Up"}
                   </Link>
                 </div>
               </div>

@@ -5,7 +5,8 @@ import {
   Route,
   Link,
   useRouteMatch,
-  Redirect
+  Redirect,
+  browserHistory 
 } from "react-router-dom";
 import "./Login.css";
 
@@ -15,7 +16,8 @@ class Login extends React.Component {
     this.state = {
       imagePreviewUrl: "",
       redirectToHome: false,
-      flag: true
+      flag: false,
+      message: ""
     };
     
   
@@ -32,10 +34,15 @@ myChangeHandler2 = (event) => {
   this.setState({password: event.target.value});
 }
 
+refreshPage = ()=> {
+  window.location.replace('/');
+}
   render() {
     if (this.state.redirectToHome) {
-      //return <Redirect to="/home" />;
+      this.refreshPage();
+      
     }
+    
 
    
     return (
@@ -56,11 +63,13 @@ myChangeHandler2 = (event) => {
               !this.state.flag && 
               <div className="login-page">
               <div className="form">
+              <p className="message value" >{this.state.message}</p>
         <form className="login-form" onSubmit={this._addUser}>
             <input type="text" placeholder="username" value={this.state.username} onChange={this.myChangeHandler}/>
             <input type="password" placeholder="password" value={this.state.password} onChange={this.myChangeHandler2}/>
             <button >login</button>
             <p className="message" onClick={this.handleClick}>Not registered? Create an account</p>
+
           </form>
         </div>
       </div>  
@@ -76,8 +85,6 @@ myChangeHandler2 = (event) => {
       username: this.state.username,
       password: this.state.password
     };
-    alert(user.username)
-    console.log(this.state.username)
     fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/login", {
       method: "POST",
       headers: {
@@ -90,11 +97,22 @@ myChangeHandler2 = (event) => {
         if (res.ok) 
         {
           return res.json();
+          
+        }else{
+          this.setState({message:"Unauthorized."})
         }
       })
       .then(res => {
+        
+        if(res.token=== undefined)
+        {
+          localStorage.setItem('isAuthenticated',false);
+        }
+        localStorage.setItem('isAuthenticated',true);
         localStorage.setItem('token',res.token)
+        
         this.setState({ redirectToHome: true });
+        
       })
       .catch(err => {
         console.log(err);

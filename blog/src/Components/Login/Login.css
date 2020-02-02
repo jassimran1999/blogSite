@@ -101,3 +101,8 @@ body {
 .message{
   cursor: pointer;
 }
+.value {
+  cursor: default;
+  padding-bottom:2vh;
+  color: #EF3B3A;
+}

@@ -20,9 +20,9 @@ class Home extends React.Component {
       HomePostData: data
     };
   }
-
   componentDidMount() {
     this.homePostData();
+    
   }
 
   homePostData = () => {
@@ -40,7 +40,9 @@ class Home extends React.Component {
   };
 
   render() {
+    
     return (
+
       <div className="Home">
         <div className="HomeHeader">
           <marquee>

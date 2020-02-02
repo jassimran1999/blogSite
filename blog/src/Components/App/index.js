@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "../SignUp";
 import Signin from "../SignIn";
 import Login from "../Login";
+import Logout from "../Logout";
 import Home from "../Home";
 import Post from "../Post";
 import Profile from "../Profile";
@@ -20,6 +21,9 @@ import {
 } from "react-router-dom";
 
 export default class extends Component {
+  
+
+
   render() {
     return (
       <div className="outer">
@@ -35,25 +39,22 @@ export default class extends Component {
           <Route path="/home" exact>
             <Redirect to="/" />
           </Route>
-          <Route path="/Signup">
-            <Signup />
-          </Route>
-          <Route path="/Signin">
-            <Signin />
-          </Route>
-          <Route path="/users/login">
+          < Route path="/users/login">
             <Login />
           </Route>
           <Route path="/AddPost">
             <AddPost />
           </Route>
           <Route path="/posts/:postId">
-            <div>
+            <div>  b
               {postData.map(item => {
                 return <Post {...item} />;
               })}
             </div>
           </Route>
+          <Route path="/Logout">
+            <Logout/>
+            </Route>
           <Route path="/users/profile/:userId">
             <div>
               <Profile/>;
