@@ -50,7 +50,7 @@ router.get('/profile/:username', (req, res) => {
         serverStat: '2',
       });
     },
-    ' username name description userPhoto followers following postArr email postsLiked ',
+    '_id username name description userPhoto followers following postArr email postsLiked ',
     'postArr',
     'title likes thumbnail views description _id',
   );

@@ -20,13 +20,54 @@ class Profile extends React.Component {
     this.state = {
       userData: {},
       userPosts: [],
+      functionClick:()=>{},
     };
   }
 
   componentWillMount() {
      this.sendUsername();
+     
   }
 
+  followerCheck = function(){
+
+    fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/isFollowed/"+this.state.userData._id)
+    .then(response => {
+      return response.json();
+    })
+    .then(res => {
+      console.log("xsxs"+res)
+      
+    });
+  }
+    
+
+
+  followerDecrease = function(){
+
+    fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/unfollow/"+this.state.userData._id)
+    .then(response => {
+      return response.json();
+    })
+    .then(res => {
+      console.log("csdcsd"+res)
+      
+    });
+  }
+
+
+
+  followerIncrease = function(){
+
+    fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/follow/"+this.state.userData._id)
+    .then(response => {
+      return response.json();
+    })
+    .then(res => {
+      console.log(res)
+      
+    });
+  }
   sendUsername = () => {
       fetch("http://ec2-54-159-137-67.compute-1.amazonaws.com:5000/users/profile/" + this.props.match.params.userId)
       .then(response => {
@@ -42,10 +83,12 @@ class Profile extends React.Component {
         }
       )
       .then(res => {
+        
         this.setState({
           userData: res.request[0],
           userPosts:res.request[0].postArr
         });
+        this.followerCheck();
       });
   };
 
