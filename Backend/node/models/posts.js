@@ -29,9 +29,11 @@ PostsModel.findPosts = function (req,callBack,error,selector,populate,populateSe
 }
 
 PostsModel.addPost = function (req,res) {
-                    console.log(req.userData.username)
+                    console.log(req.userData['userId'])
+
                     UsersModel.findUsers(
-                        {_id:req.userData.username},
+                        {_id: req.userData['userId']},
+
                         (response) => {
                             let count = response.length+1;
                             const post = new PostsModel({
