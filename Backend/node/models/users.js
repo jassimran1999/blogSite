@@ -15,7 +15,7 @@ const users = new mongoose.Schema({
     unique: true, 
     match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
-  phoneNumber: { type: Number },
+  phoneNumber: { type: Number , unique: true},
   createdAt: Date,
   userPhoto: String,
   followers: Number,
@@ -97,6 +97,7 @@ UsersModel.addUser = function (req,res) {
                       password: hash,
                       createdAt: Date.now(),
                       userPhoto: "https://cda.kaust.edu.sa/_layouts/KAUST_ResearchCenters_Template/images/DefaultPersonPhoto.png",
+                      phoneNumber: '',
                       followers: 0,
                       following: 0,
                       postArr: [ ],
