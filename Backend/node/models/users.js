@@ -15,7 +15,7 @@ const users = new mongoose.Schema({
     unique: true, 
     match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
-  phoneNumber: { type: Number, unique: true },
+  phoneNumber: { type: Number },
   createdAt: Date,
   userPhoto: String,
   followers: Number,
