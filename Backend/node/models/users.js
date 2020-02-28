@@ -99,7 +99,7 @@ UsersModel.addUser = function (req,res) {
                       description: req.body.description,
                       phoneNumber: req.body.phoneNumber,
                       createdAt: Date.now(),
-                      userPhoto: req.file.path,
+                      userPhoto: "https://cda.kaust.edu.sa/_layouts/KAUST_ResearchCenters_Template/images/DefaultPersonPhoto.png",
                       followers: 0,
                       following: 0,
                       postArr: [ ],
