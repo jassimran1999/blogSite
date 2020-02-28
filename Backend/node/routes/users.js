@@ -57,7 +57,7 @@ router.get('/profile/:username', (req, res) => {
 });
 
 
-router.post("/add",upload.single('userPhoto'), (req, res, next) => {
+router.post("/add" (req, res, next) => {
   UsersModel.addUser(req,res);
 });
 
